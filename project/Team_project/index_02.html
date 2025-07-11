@@ -1,0 +1,2402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sub_page</title>
+  <link rel="stylesheet" href="./css/sub.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="module" crossorigin src="assets/index.3ea0cc48.js"></script>
+  <link rel="modulepreload" href="assets/vendor.3d228fec.js">
+  <link rel="stylesheet" href="assets/index.000c16e0.css">
+
+  <script src="./js/jquery-3.7.1.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.3/jquery.scrollTo.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+  <script>
+    $(function(){
+      // $(window).scroll(function(){
+      //   if($(this).scrollTop() >= 200) {
+      //     $('.btn_top').stop().fadeIn('200')
+      //   } else {
+      //     $('.btn_top').stop().fadeOut('200')
+      //   }
+      // })
+      // $('.btn_top').click(function(e){
+      //   e.preventDefault()
+      //   $(window).scrollTo({top:0, left:0},500)
+      // })  //btn_top
+      $('.menu1').click(function(){
+        $('.menu1 ul').slideUp();
+        if ($(this).children('.menu1 ul').is(':hidden')){
+          $(this).children('.menu1 ul').slideDown(300);
+        } else{
+          $(this).children('.menu1 ul').slideUp(300);
+        }
+      });
+      
+    }) //ham_menu
+
+    $(function(){
+      let tab = $('.box .box01>li')
+      let sheet = $('.wrap section')
+      let index = 0
+
+      $('.wrap section:first').css('display','block')
+        tab.click(function(){
+        index = $(this).index()
+        tab.removeClass('on')
+        tab.eq(index).addClass('on')
+
+        sheet.css('display','none')
+        sheet.eq(index).css('display','block')
+        if(window.matchMedia("(min-width: 1024px)").matches) {
+          $('.calendar').css('display','none')
+          $('.calendar_pc').css('display','none')
+        }
+    })
+      $('.box .box01>li:nth-child(2)').click(function(){
+        $('.calendar_pc').css('display','block')
+        $( "#accordion" ).accordion();
+        if(window.matchMedia("(min-width: 320px)").matches) {
+          $('.calendar_pc').css('display','none')
+        }if(window.matchMedia("(min-width: 1024px)").matches) {
+          $('.calendar').css('display','none')
+          $('.calendar_pc').css('display','block')
+        }
+      })
+
+    })//choose poster,calendar
+  
+    
+    
+
+  </script>
+
+</head>
+<body>
+  
+  <div class="btn_top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </div>
+
+  <header id="header">
+    <div class="nav">
+      <div class="search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <div class="logo">
+        <a href="./index.html"><img src="./images/logo.png" alt="logo"></a>
+      </div>
+      <div class="ham">
+        <label for="ham_chk" class="ham_open"><img src="./images/ham.png" alt="ham"></label>
+      </div>
+    </div>
+
+    <input type="checkbox" id="ham_chk">
+
+    <div class="ham_menu">
+      <ul class="lnb">
+        <li><a href="#!">로그인</a></li>
+        <li><a href="#!">회원가입</a></li>
+        <li>
+          <select>
+            <option>KO</option>
+            <option>EN</option>
+          </select>
+        </li>
+        <label for="ham_chk" class="ham_close"><i class="fa-solid fa-x"></i></label>
+      </ul>
+      <ul class="accordion">
+        <li class="menu1">
+          <p>영화의전당</p>
+          <ul>
+            <li><a href="#">센터소개</a></li>
+            <li><a href="#">인사말</a></li>
+            <li><a href="#">연혁</a></li>
+            <li><a href="#">건축개요</a></li>
+          </ul>
+        </li>
+        <li class="menu1">
+          <p>상영프로그램</p>
+          <ul>
+            <li><a href="#index_02">상영시간표</a></li>
+            <li><a href="#">현재상영프로그램</a></li>
+            <li><a href="#">상영예정프로그램</a></li>
+            <li><a href="#">지난프로그램</a></li>
+          </ul>
+        </li>
+        <li class="menu1">
+          <p>영화</p>
+          <ul>
+            <li><a href="#">영화일정</a></li>
+            <li><a href="#">영화와비평</a></li>
+            <li><a href="#">좌석배치도</a></li>
+            <li><a href="#">대관</a></li>
+          </ul>
+        </li>
+        <li class="menu1">
+        <p>공연전시</p>
+          <ul>
+            <li><a href="#">공연일정</a></li>
+            <li><a href="#">전시일정</a></li>
+            <li><a href="#">좌석배치도</a></li>
+            <li><a href="#">대관</a></li>
+          </ul>
+        </li>
+        <li class="menu1">
+          <p>아카데미</p>
+          <ul>
+            <li><a href="#">아카데미일정</a></li>
+            <li><a href="#">영화아카데미</a></li>
+            <li><a href="#">예술아카데미</a></li>
+            <li><a href="#">어린이아카데미</a></li>
+            <li><a href="#">대관</a></li>
+          </ul>
+        </li>
+        <li class="menu1">
+          <p>영화도서관</p>
+          <ul>
+            <li><a href="#">이용안내</a></li>
+            <li><a href="#">자료검색</a></li>
+            <li><a href="#">행사안내</a></li>
+            <li><a href="#">필름아카이브</a></li>
+          </ul>
+        </li>
+        <li class="menu1">
+          <p>공지사항</p>
+          <ul>
+            <li><a href="#">이벤트</a></li>
+            <li><a href="#">제휴</a></li>
+            <li><a href="#">회원제안내</a></li>
+            <li><a href="#">메세나기업모집</a></li>
+            <li><a href="#">광고신청</a></li>
+            <li><a href="#">촬영신청</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </header>   <!----header----->
+
+  <header class="header01">
+    <nav class="lnb">
+      <div class="logo01"><a href="./index.html">
+        <img src="./images/logo.png" alt="logo"></a>
+      </div>
+      <div class="search">
+        <input type="search" onclick="onfocus">
+        <a href="#!"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></a>
+      </div>
+      <ul>
+        <li><a href="#!">로그인</a></li>
+        <li><a href="#!">회원가입</a></li>
+        <li><a href="#!">마이페이지</a></li>
+        <li>
+          <select>
+            <option>LANGUAGE</option>
+            <option>KOREA</option>
+            <option>ENGLISH</option>
+          </select>
+        </li>
+      </ul>
+    </nav><!-------header01------>
+
+    <div class="menu">
+      <ul class="title_menu">
+        <li class="title_sub"><a href="#!">영화의전당</a>
+          <ul>
+            <li><a href="#!">센터소개</a></li>
+            <li><a href="#!">인사말</a></li>
+            <li><a href="#!">연혁</a></li>
+            <li><a href="#!">건축개요</a></li>
+          </ul>
+        </li>
+        <li class="title_sub"><a href="#!">상영프로그램</a>
+          <ul>
+            <li><a href="./index_02.html">상영시간표</a></li>
+            <li><a href="#!">현재상영프로그램</a></li>
+            <li><a href="#!">상영예정프로그램</a></li>
+            <li><a href="#!">지난프로그램</a></li>
+            <li><a href="#!">예매안내</a></li>
+          </ul>
+        </li>
+        <li class="title_sub"><a href="#!">영화</a>
+          <ul>
+            <li><a href="#!">영화관안내</a></li>
+            <li><a href="#!">영화일정</a></li>
+            <li><a href="#!">영화와비평</a></li>
+          </ul>
+        </li>
+        <li class="title_sub"><a href="#!">공연전시</a>
+          <ul>
+            <li><a href="#!">공연장안내</a></li>
+            <li><a href="#!">공연일정</a></li>
+            <li><a href="#!">전시일정</a></li>
+          </ul>
+        </li>
+        <li class="title_sub"><a href="#!">아카데미</a>
+          <ul>
+            <li><a href="#!">아카데미안내</a></li>
+            <li><a href="#!">아카데미일정</a></li>
+            <li><a href="#!">영화아카데미</a></li>
+            <li><a href="#!">예술아카데미</a></li>
+            <li><a href="#!">어린이아카데미</a></li>
+          </ul>
+        </li>
+        <li class="title_sub"><a href="#!">영화도서관</a>
+          <ul>
+            <li><a href="#!">이용안내</a></li>
+            <li><a href="#!">자료검색</a></li>
+            <li><a href="#!">행사안내</a></li>
+            <li><a href="#!">필름아카이브</a></li>
+          </ul>
+        </li>
+        <li class="title_sub"><a href="#!">공지사항</a>
+          <ul>
+            <li><a href="#!">이벤트</a></li>
+            <li><a href="#!">제휴</a></li>
+            <li><a href="#!">회원제안내</a></li>
+            <li><a href="#!">메세나기업모집</a></li>
+            <li><a href="#!">시설안내</a></li>
+            <li><a href="#!">오시는길</a></li>
+            <li><a href="#!">광고신청</a></li>
+            <li><a href="#!">촬영신청</a></li>
+            <li><a href="#!">고객센터</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!----pc_menu----->
+  </header><!------pc_header-------->
+
+  <div class="gnb">
+    <ul>
+      <li><a href="#!">상영시간표</a></li>
+      <li><a href="#!">현재상영프로그램</a></li>
+      <li><a href="#!">상영예정프로그램</a></li>
+      <li><a href="#!">지난프로그램</a></li>
+    </ul>
+  </div>
+
+  <p class="title">
+    상영시간표
+  </p> <!-----title---->
+  <section class="movie_scroll">
+    <div class="movie_box">
+      <div class="movie box01">
+        <div class="background">
+          <img src="./images/sub_background1.jpg" alt="sub_background">
+          <div class="back_title">
+            <p>예술영화 프로그램</p>
+            <p>화면 위의 아름다운 순간을 영화의 전당에서 만나보세요.</p>
+          </div>
+        </div>
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./images/10month.jpg" alt="10month">
+              <div class="m_title">
+                <p>10개월의 미래</p>
+                <p><i class="fa-solid fa-star"></i>8.2 | 개봉일 2023.08.09</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/ruddk.jpg" alt="30일">
+              <div class="경아의 딸">
+                <p>30일</p>
+                <p><i class="fa-solid fa-star"></i>8.1 | 개봉일 2023.10.13</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/her.jpg" alt="her">
+              <div class="m_title">
+                <p>그녀의 취미생활</p>
+                <p><i class="fa-solid fa-star"></i>8.7 | 개봉일 2023.11.01</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      
+        <script>
+          let slide = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+            },
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+          });
+        </script>
+      </div> 
+
+      <div class="movie box02">
+        <div class="background">
+          <img src="./images/sub_background.jpg" alt="sub_background">
+          <div class="back_title">
+            <p>대중 영화 프로그램</p>
+            <p>감동적인 순간을 제공하는 영화를 만나보세요.</p>
+          </div>
+        </div>
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./images/poster1.jpg" alt="poster1">
+              <div class="m_title">
+                <p>콘크리트 유토피아</p>
+                <p><i class="fa-solid fa-star"></i>8.7 | 개봉일 2023.08.09</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/PICK_02.jpg" alt="30일">
+              <div class="m_title">
+                <p>30일</p>
+                <p><i class="fa-solid fa-star"></i>7.9 | 개봉일 2023.10.13</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/PICK_05.png" alt="소년들">
+              <div class="m_title">
+                <p>소년들</p>
+                <p><i class="fa-solid fa-star"></i>8.7 | 개봉일 2023.11.01</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      
+        <script>
+          let slide01 = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+            },
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+          });
+        </script>
+      </div> 
+
+      <div class="movie box03">
+        <div class="background">
+          <img src="./images/sub_background3.jpg" alt="sub_background">
+          <div class="back_title">
+            <p>씨네 리플레이</p>
+            <p>주옥같은 재개봉 영화를 영화의 전당에서 만나보세요.</p>
+          </div>
+        </div>
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./images/titanic.jpg" alt="titanic">
+              <div class="m_title">
+                <p>타이타닉</p>
+                <p><i class="fa-solid fa-star"></i>8.5 | 개봉일 2023.08.09</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/abouttime.jpg" alt="abouttime">
+              <div class="m_title">
+                <p>어바웃타임</p>
+                <p><i class="fa-solid fa-star"></i>8.9 | 개봉일 2023.10.21</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="./images/loveletter.jpg" alt="loveletter">
+              <div class="m_title">
+                <p>러브레터</p>
+                <p><i class="fa-solid fa-star"></i>8.3 | 개봉일 2023.11.01</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      
+        <script>
+          let slide02 = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true,
+            },
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+          });
+        </script>
+      </div> 
+    </div>
+  </section> <!----movie----->
+
+  <section class="box">
+    <ul class="box01">
+      <li class="on">
+        <a href="#!">
+        <p><i class="fa-regular fa-image"></i></p>
+        <p>포스터형</p>
+      </a></li>
+      <li>
+        <a href="#!">
+        <p><i class="fa-regular fa-calendar-days"></i></p>
+        <p>달력형</p>
+      </a></li>
+    </ul>
+
+    <ul class="box02">
+      <li class="color">
+        <span class="pink"></span>
+        <p>중극장</p>
+      </li>
+      <li class="color">
+        <span class="blue"></span>
+        <p>시네마테크</p>
+      </li>
+      <li class="color">
+        <span class="green"></span>
+        <p>소극장</p>
+      </li>
+      <li class="color">
+        <span class="navy"></span>
+        <p>인디 +</p>
+      </li>
+    </ul>
+  </section><!------icon------->
+
+
+  <div class="wrap">
+    <section class="poster sheet on">
+      <div class="date">
+        <div class="date_box">
+          <div><a href="#!">10월 7일</a></div>
+          <div><a href="#!">10월 8일</a></div>
+          <div><a href="#!">10월 9일</a></div>
+          <div><a href="#!">10월 10일</a></div>
+          <div><a href="#!">10월 11일</a></div>
+          <div><a href="#!">10월 12일</a></div>
+          <div><a href="#!">10월 13일</a></div>
+          <div><a href="#!">10월 14일</a></div>
+        </div>
+      </div>
+
+      <div class="date01">
+        <div class="photo">
+          <img src="./images/poster1.jpg" alt="poster1">
+        </div>
+        <div class="more">
+          <div class="more_title">
+            <img src="./images/15.png" alt="15">
+            <p>콘크리트 유토피아</p>
+          </div>
+          <div class="time">
+            <i class="fa-regular fa-clock"></i>129분</div>
+          <div class="notice">
+            <p>“아파트는 주민의 것” 온 세상을 집어삼킨 대지진, 그리고 하루아침에 폐허가 된 서울. 모든 것이 무너졌지만 오직 황궁 아파트만은 그대로다...
+            </p>
+          </div>
+          <ul>
+            <li><a href="#!">09:00</a></li>
+            <li><a href="#!">10:30</a></li>
+            <li><a href="#!">11:00</a></li>
+            <li><a href="#!">12:30</a></li>
+            <li><a href="#!">14:00</a></li>
+            <li><a href="#!">15:30</a></li>
+            <li><a href="#!">16:20</a></li>
+            <li><a href="#!">17:30</a></li>
+          </ul>
+          <div class="review">
+            <p><a href="#!"><i class="fa-regular fa-heart"></i> 1,250</a></p>
+            <p><a href="#!"><i class="fa-solid fa-play"></i> 예고편 재생</a></p>
+            <p><a href="#!">상세보기</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="date01 date02">
+        <div class="photo">
+          <img src="./images/밀수.jpg" alt="poster1">
+        </div>
+        <div class="more">
+          <div class="more_title">
+            <img src="./images/15.png" alt="15">
+            <p>밀수</p>
+          </div>
+          <div class="time">
+            <i class="fa-regular fa-clock"></i>129분</div>
+          <div class="notice">
+            <p>열길 물속은 알아도 한길 사람 속은 모른다! 평화롭던 바닷가 마을 군천에 화학 공장이 들어서면서 하루아침에 일자리를 잃은 해녀들. 먹고 살기 위한 방법을 찾던 승부사 '춘자'(김혜수)는...
+            </p>
+          </div>
+          <ul>
+            <li><a href="#!">10:00</a></li>
+            <li><a href="#!">10:30</a></li>
+            <li><a href="#!">11:00</a></li>
+            <li><a href="#!">12:30</a></li>
+            <li><a href="#!">14:10</a></li>
+            <li><a href="#!">15:30</a></li>
+            <li><a href="#!">16:20</a></li>
+            <li><a href="#!">18:30</a></li>
+          </ul>
+          <div class="review">
+            <p><a href="#!"><i class="fa-regular fa-heart"></i> 1,250</a></p>
+            <p><a href="#!"><i class="fa-solid fa-play"></i> 예고편 재생</a></p>
+            <p><a href="#!">상세보기</a></p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="date01 date03">
+        <div class="photo">
+          <img src="./images/poster2.jpg" alt="poster1">
+        </div>
+        <div class="more">
+          <div class="more_title">
+            <img src="./images/15.png" alt="15">
+            <p>녹야</p>
+          </div>
+          <div class="time">
+            <i class="fa-regular fa-clock"></i>92분</div>
+          <div class="notice">
+            <p>인천 여객항 보안검색대에서 근무하는 이방인 ‘진샤’(판빙빙). 낯선 타지에서 쳇바퀴 같은 삶을 살아가던 그녀 앞에 자신과 달리 자유로워 보이는 ‘초록머리 여자’(이주영)가 나타난다...
+            </p>
+          </div>
+          <ul>
+            <li><a href="#!">09:00</a></li>
+            <li><a href="#!">10:30</a></li>
+            <li><a href="#!">11:30</a></li>
+            <li><a href="#!">12:30</a></li>
+            <li><a href="#!">13:00</a></li>
+            <li><a href="#!">14:30</a></li>
+            <li><a href="#!">16:20</a></li>
+            <li><a href="#!">17:30</a></li>
+          </ul>
+          <div class="review">
+            <p><a href="#!"><i class="fa-regular fa-heart"></i> 1,250</a></p>
+            <p><a href="#!"><i class="fa-solid fa-play"></i> 예고편 재생</a></p>
+            <p><a href="#!">상세보기</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="date01 date04">
+        <div class="photo">
+          <img src="./images/PICK_04.png" alt="poster1">
+        </div>
+        <div class="more">
+          <div class="more_title">
+            <img src="./images/all.png" alt="all">
+            <p>그대들은 어떻게 살것인가</p>
+          </div>
+          <div class="time">
+            <i class="fa-regular fa-clock"></i>124분</div>
+          <div class="notice">
+            <p>화재로 어머니를 잃은 11살 소년 ‘마히토’는 아버지와 함께 어머니의 고향으로 간다. 어머니에 대한 그리움과 새로운 보금자리에 적응하느라 힘들어하던 ‘마히토’ 앞에 정체를 알 수 없는 왜가리 한 마리가 나타나고...
+            </p>
+          </div>
+          <ul>
+            <li><a href="#!">09:00</a></li>
+            <li><a href="#!">10:30</a></li>
+            <li><a href="#!">11:00</a></li>
+            <li><a href="#!">12:30</a></li>
+            <li><a href="#!">14:00</a></li>
+            <li><a href="#!">15:30</a></li>
+            <li><a href="#!">16:20</a></li>
+            <li><a href="#!">17:30</a></li>
+          </ul>
+          <div class="review">
+            <p><a href="#!"><i class="fa-regular fa-heart"></i> 1,250</a></p>
+            <p><a href="#!"><i class="fa-solid fa-play"></i> 예고편 재생</a></p>
+            <p><a href="#!">상세보기</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="date01 date05">
+        <div class="photo">
+          <img src="./images/PICK_01.jpg" alt="poster1">
+        </div>
+        <div class="more">
+          <div class="more_title">
+            <img src="./images/all.png" alt="all">
+            <p>이터널메모리</p>
+          </div>
+          <div class="time">
+            <i class="fa-regular fa-clock"></i>85분</div>
+          <div class="notice">
+            <p>칠레의 저명한 저널리스트이자 피노체트 정권의 범죄를 기록한 작가 아우구스토와 배우이자 활동가이며 문화부장관을 역임한 파울리나는 25년간 사랑을 이어온 백발의 연인이다...
+            </p>
+          </div>
+          <ul>
+            <li><a href="#!">09:00</a></li>
+            <li><a href="#!">10:30</a></li>
+            <li><a href="#!">11:00</a></li>
+            <li><a href="#!">12:30</a></li>
+            <li><a href="#!">14:00</a></li>
+            <li><a href="#!">15:30</a></li>
+            <li><a href="#!">16:20</a></li>
+            <li><a href="#!">17:30</a></li>
+          </ul>
+          <div class="review">
+            <p><a href="#!"><i class="fa-regular fa-heart"></i> 1,250</a></p>
+            <p><a href="#!"><i class="fa-solid fa-play"></i> 예고편 재생</a></p>
+            <p><a href="#!">상세보기</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="date01 date06">
+        <div class="photo">
+          <img src="./images/PICK_05.png" alt="poster1">
+        </div>
+        <div class="more">
+          <div class="more_title">
+            <img src="./images/15.png" alt="15">
+            <p>소년들</p>
+          </div>
+          <div class="time">
+            <i class="fa-regular fa-clock"></i>124분</div>
+          <div class="notice">
+            <p>1999년 전북 삼례의 작은 슈퍼마켓에서 강도 살인 사건이 발생한다.
+              경찰의 수사망은 단번에 동네에 사는 소년들 3인으로 좁혀지고...
+            </p>
+          </div>
+          <ul>
+            <li><a href="#!">09:00</a></li>
+            <li><a href="#!">10:30</a></li>
+            <li><a href="#!">11:00</a></li>
+            <li><a href="#!">12:30</a></li>
+            <li><a href="#!">14:00</a></li>
+            <li><a href="#!">15:30</a></li>
+            <li><a href="#!">16:20</a></li>
+            <li><a href="#!">17:30</a></li>
+          </ul>
+          <div class="review">
+            <p><a href="#!"><i class="fa-regular fa-heart"></i> 1,250</a></p>
+            <p><a href="#!"><i class="fa-solid fa-play"></i> 예고편 재생</a></p>
+            <p><a href="#!">상세보기</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section class="calendar sheet">
+      <div class="slide">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">2023년 10월</div>
+            <div class="swiper-slide">2023년 11월</div>
+            <div class="swiper-slide">2023년 12월</div>
+            <div class="swiper-slide">2024년 1월</div>
+            <div class="swiper-slide">2024년 2월</div>
+            <div class="swiper-slide">2024년 3월</div>
+            <div class="swiper-slide">2024년 4월</div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      
+        <!-- Initialize Swiper -->
+        <script>
+          var swiper = new Swiper(".mySwiper", {
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+          });
+        </script>
+      </div>
+
+      <ul class="week">
+        <li>일</li>
+        <li>월</li>
+        <li>화</li>
+        <li>수</li>
+        <li>목</li>
+        <li>금</li>
+        <li>토</li>
+      </ul>
+      <ul class="week01">
+        <li>일요일</li>
+        <li>월요일</li>
+        <li>화요일</li>
+        <li>수요일</li>
+        <li>목요일</li>
+        <li>금요일</li>
+        <li>토요일</li>
+      </ul>
+      <ul class="days">
+        <li>01
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_blue"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>02
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_blue"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>03
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_blue"></li>
+          </ul>
+        </li>
+        <li>04
+          <ul>
+            <li class="days_blue"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>05
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>06
+          <ul>
+            <li class="days_blue"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>07
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_blue"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>08
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_blue"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li><label for="chk">09</label>
+          <ul>
+            <input type="checkbox" id="chk">
+            <div class="pop_up_wrap">
+              <div class="pop_up">
+                <div class="pop_up_title">
+                  <p>상영시간표</p>
+                  <label for="chk" class="btn_close font03"><i class="fa-solid fa-x"></i></label>
+                </div>
+                <div class="date01 date03">
+                  <div class="photo">
+                    <img src="./images/poster2.jpg" alt="poster1">
+                  </div>
+                  <div class="more">
+                    <div class="more_title">
+                      <img src="./images/15.png" alt="15">
+                      <p>녹야</p>
+                    </div>
+                    <div class="time">
+                      <i class="fa-regular fa-clock"></i>92분</div>
+                    <div class="notice">
+                      <p>인천 여객항 보안검색대에서 근무하는 이방인 ‘진샤’(판빙빙). 낯선 타지에서 쳇바퀴 같은 삶을 살아가던 그녀 앞에 자신과 달리 자유로워 보이는 ‘초록머리 여자’(이주영)가 나타난다...
+                      </p>
+                    </div>
+                    <ul>
+                      <li><a href="#!">09:00</a></li>
+                      <li><a href="#!">10:30</a></li>
+                      <li><a href="#!">11:30</a></li>
+                      <li><a href="#!">12:30</a></li>
+                      <li><a href="#!">13:00</a></li>
+                      <li><a href="#!">14:30</a></li>
+                      <li><a href="#!">16:20</a></li>
+                      <li><a href="#!">17:30</a></li>
+                    </ul>
+                    <div class="review">
+                      <p><a href="#!"><i class="fa-regular fa-heart"></i> 1,250</a></p>
+                      <p><a href="#!"><i class="fa-solid fa-play"></i> 예고편 재생</a></p>
+                      <p><a href="#!">상세보기</a></p>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="date01 date05">
+                  <div class="photo">
+                    <img src="./images/PICK_01.jpg" alt="poster1">
+                  </div>
+                  <div class="more">
+                    <div class="more_title">
+                      <img src="./images/all.png" alt="all">
+                      <p>이터널메모리</p>
+                    </div>
+                    <div class="time">
+                      <i class="fa-regular fa-clock"></i>85분</div>
+                    <div class="notice">
+                      <p>칠레의 저명한 저널리스트이자 피노체트 정권의 범죄를 기록한 작가 아우구스토와 배우이자 활동가이며 문화부장관을 역임한 파울리나는 25년간 사랑을 이어온 백발의 연인이다...
+                      </p>
+                    </div>
+                    <ul>
+                      <li><a href="#!">09:00</a></li>
+                      <li><a href="#!">10:30</a></li>
+                      <li><a href="#!">11:00</a></li>
+                      <li><a href="#!">12:30</a></li>
+                      <li><a href="#!">14:00</a></li>
+                      <li><a href="#!">15:30</a></li>
+                      <li><a href="#!">16:20</a></li>
+                      <li><a href="#!">17:30</a></li>
+                    </ul>
+                    <div class="review">
+                      <p><a href="#!"><i class="fa-regular fa-heart"></i> 1,250</a></p>
+                      <p><a href="#!"><i class="fa-solid fa-play"></i> 예고편 재생</a></p>
+                      <p><a href="#!">상세보기</a></p>
+                    </div>
+                  </div>
+                </div>
+        
+                <div class="date01 date06">
+                  <div class="photo">
+                    <img src="./images/PICK_05.png" alt="poster1">
+                  </div>
+                  <div class="more">
+                    <div class="more_title">
+                      <img src="./images/15.png" alt="15">
+                      <p>소년들</p>
+                    </div>
+                    <div class="time">
+                      <i class="fa-regular fa-clock"></i>124분</div>
+                    <div class="notice">
+                      <p>1999년 전북 삼례의 작은 슈퍼마켓에서 강도 살인 사건이 발생한다.
+                        경찰의 수사망은 단번에 동네에 사는 소년들 3인으로 좁혀지고...
+                      </p>
+                    </div>
+                    <ul>
+                      <li><a href="#!">09:00</a></li>
+                      <li><a href="#!">10:30</a></li>
+                      <li><a href="#!">11:00</a></li>
+                      <li><a href="#!">12:30</a></li>
+                      <li><a href="#!">14:00</a></li>
+                      <li><a href="#!">15:30</a></li>
+                      <li><a href="#!">16:20</a></li>
+                      <li><a href="#!">17:30</a></li>
+                    </ul>
+                    <div class="review">
+                      <p><a href="#!"><i class="fa-regular fa-heart"></i> 1,250</a></p>
+                      <p><a href="#!"><i class="fa-solid fa-play"></i> 예고편 재생</a></p>
+                      <p><a href="#!">상세보기</a></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="date01 date06">
+                  <div class="photo">
+                    <img src="./images/PICK_04.png" alt="poster1">
+                  </div>
+                  <div class="more">
+                    <div class="more_title">
+                      <img src="./images/all.png" alt="all">
+                      <p>그대들은 어떻게 살것인가</p>
+                    </div>
+                    <div class="time">
+                      <i class="fa-regular fa-clock"></i>124분</div>
+                    <div class="notice">
+                      <p>어머니에 대한 그리움과 새로운 보금자리에 적응하느라 힘들어하던 ‘마히토’ 앞에 정체를 알 수 없는 왜가리 한 마리가 나타나고...
+                      </p>
+                    </div>
+                    <ul>
+                      <li><a href="#!">09:00</a></li>
+                      <li><a href="#!">10:30</a></li>
+                      <li><a href="#!">11:00</a></li>
+                      <li><a href="#!">12:30</a></li>
+                      <li><a href="#!">14:00</a></li>
+                      <li><a href="#!">15:30</a></li>
+                      <li><a href="#!">16:20</a></li>
+                      <li><a href="#!">17:30</a></li>
+                    </ul>
+                    <div class="review">
+                      <p><a href="#!"><i class="fa-regular fa-heart"></i> 1,250</a></p>
+                      <p><a href="#!"><i class="fa-solid fa-play"></i> 예고편 재생</a></p>
+                      <p><a href="#!">상세보기</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <li class="days_navy"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>10
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_blue"></li>
+            <li class="days_green"></li>
+          </ul>
+        </li>
+        <li>11
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_blue"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>12
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>13
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_blue"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>14
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_blue"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>15
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_blue"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>16
+          <ul>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>17
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>18
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_blue"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>19
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_blue"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>20
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_blue"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>21
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>22
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>23
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_blue"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>24
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_blue"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>25
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_blue"></li>
+            <li class="days_green"></li>
+          </ul>
+        </li>
+        <li>26
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_blue"></li>
+          </ul>
+        </li>
+        <li>27
+          <ul>
+            <li class="days_blue"></li>
+            <li class="days_green"></li>
+
+          </ul>
+        </li>
+        <li>28
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_blue"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>29
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>30
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_blue"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li>31
+          <ul>
+            <li class="days_navy"></li>
+            <li class="days_blue"></li>
+            <li class="days_green"></li>
+            <li class="days_pink"></li>
+          </ul>
+        </li>
+        <li class="next">1</li>
+        <li class="next">2</li>
+        <li class="next">3</li>
+        <li class="next">4</li>
+      </ul>
+    </section>
+  </div> <!------calendar------>
+
+  <section class="calendar_pc sheet on">
+
+    <div class="slide">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">2023년 10월</div>
+          <div class="swiper-slide">2023년 11월</div>
+          <div class="swiper-slide">2023년 12월</div>
+          <div class="swiper-slide">2024년 1월</div>
+          <div class="swiper-slide">2024년 2월</div>
+          <div class="swiper-slide">2024년 3월</div>
+          <div class="swiper-slide">2024년 4월</div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    
+      <!-- Swiper JS -->
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+      <!-- Initialize Swiper -->
+      <script>
+        var swiper = new Swiper(".mySwiper", {
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+      </script>
+    </div>
+    <ul class="week02">
+      <li>일요일</li>
+      <li>월요일</li>
+      <li>화요일</li>
+      <li>수요일</li>
+      <li>목요일</li>
+      <li>금요일</li>
+      <li>토요일</li>
+    </ul>
+    <div id="accordion">
+      <ul class="day_tab">
+        <li>01</li>
+        <li>02</li>
+        <li>03</li>
+        <li>04</li>
+        <li>05</li>
+        <li>06</li>
+        <li>07</li>
+      </ul>
+      <ul class="day_sheet">
+        <li class="sheet01">
+          <ul>
+            <li>
+              <span>09:30</span>
+              <a href="#!">
+              <img src="./images/12.png" alt="12">
+              <span>달짝지근해 : 7510</span></a>
+            </li>
+            <li>
+              <span>11:10</span>
+              <a href="#!">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF) <br>툰드라의 경고</span></a>
+            </li>
+            <li>
+              <span>11:40</span>
+              <a href="#!">
+              <img src="./images/12.png" alt="12">
+              <span>퀴어 마이 프렌즈</span></a>
+            </li>
+            <li>
+              <span>12:00</span>
+              <a href="#!">
+              <img src="./images/12.png" alt="12">
+              <span>타겟</span></a>
+            </li>
+            <li>
+              <span>13:00</span>
+              <a href="#!">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF) <br>불편한 질문/연결된 재난</span></a>
+            </li>
+            <li>
+              <span>13:20</span>
+              <a href="#!">
+              <img src="./images/12.png" alt="12">
+              <span>너의 순간</span></a>
+            </li>
+            <li>
+              <span>14:00</span>
+              <a href="#!">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF) <br>기후변화 최후의 마지노선</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet02">
+          <ul>
+            <li>
+              <span>15:00</span>
+              <a href="#!">
+              <img src="./images/12.png" alt="12">
+              <span>지옥만세</span></a>
+            </li>
+            <li>
+              <span>17:00</span>
+              <a href="#!">
+              <img src="./images/12.png" alt="12">
+              <span>콘크리트 유토피아</span></a>
+            </li>
+            <li>
+              <span>17:20</span>
+              <a href="#!">
+              <img src="./images/12.png" alt="12">
+              <span>강변의 무코리타</span></a>
+            </li>
+            <li>
+              <span>18:00</span>
+              <a href="#!">
+              <img src="./images/12.png" alt="12">
+              <span>불코노고프 대위<br>탈출하다</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet03">
+          <ul>
+            <li>
+              <span>10:00</span>
+              <a href="#!">
+              <img src="./images/12.png" alt="12">
+              <span>불코노고프 대위<br>탈출하다</span></a>
+            </li>
+            <li>
+              <span>11:00</span>
+              <a href="#!">
+              <img src="./images/12.png" alt="12">
+              <span>달짝지근해 : 7510</span></a>
+            </li>
+            <li>
+              <span>13:30</span>
+              <a href="#!">
+              <img src="./images/12.png" alt="12">
+              <span>그녀의 취미생활</span></a>
+            </li>
+            <li>
+              <span>17:00</span>
+              <a href="#!">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)기후변화 최후의 마지노선</span></a>
+            </li>
+            <li>
+              <span>10:00</span>
+              <a href="#!">
+              <img src="./images/12.png" alt="12">
+              <span>불코노고프 대위<br>탈출하다</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet04">
+          <ul>
+            <li>
+              <span>13:00</span>
+              <a href="#!">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)불편한 질문/연결된 재난</span></a>
+            </li>
+            <li>
+              <span>13:30</span>
+              <a href="#!">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)맨 카인드 맨</span></a>
+            </li>
+            <li>
+              <span>14:30</span>
+              <a href="#!">
+              <img src="./images/12.png" alt="12">
+              <span>타겟</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet05">
+          <ul>
+            <li>
+              <span>10:30</span>
+              <a href="#!">
+              <img src="./images/12.png" alt="12">
+              <span>너의 순간</span></a>
+            </li>
+            <li>
+              <span>11:30</span>
+              <a href="#!">
+              <img src="./images/12.png" alt="12">
+              <span>달짝지근해 : 7510</span></a>
+            </li>
+            <li>
+              <span>12:30</span>
+              <a href="#!">
+              <img src="./images/12.png" alt="12">
+              <span>타겟</span></a>
+            </li>
+            <li>
+              <span>18:30</span>
+              <a href="#!">
+              <img src="./images/12.png" alt="12">
+              <span>그녀의 취미생활</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet06">
+          <ul>
+            <li>
+              <span>09:30</span>
+              <a href="#!">
+              <img src="./images/15.png" alt="15">
+              <span>소년들</span></a>
+            </li>
+            <li>
+              <span>12:40</span>
+              <a href="#!">
+              <img src="./images/12.png" alt="12">
+              <span>그대들은 어떻게 살것인가</span></a>
+            </li>
+            <li>
+              <span>15:30</span>
+              <a href="#!">
+              <img src="./images/15.png" alt="15">
+              <span>30일</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet07">
+          <ul>
+            <li>
+              <span>13:30</span>
+              <a href="#!">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)맨 카인드 맨</span></a>
+            </li>
+            <li>
+              <span>14:30</span>
+              <a href="#!">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)툰드라의 경고</span></a>
+            </li>
+            <li>
+              <span>16:30</span>
+              <a href="#!">
+              <img src="./images/12.png" alt="12">
+              <span>달짝지근해 : 7510</span></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="day_tab on">
+        <li class="yesterday">08</li>
+        <li class="today">09</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+      </ul>
+      <ul class="day_sheet day_sheet02">
+        <li class="sheet01">
+          <ul class="before">
+            <li>
+              <span>09:30</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>달짝지근해 : 7510</span></a>
+            </li>
+            <li>
+              <span>12:00</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>타겟</span></a>
+            </li>
+            <li>
+            <li>
+              <span>13:00</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF) <br>불편한 질문/연결된 재난</span></a>
+            </li>
+            <li>
+              <span>13:20</span>
+              <a href="#!" class="green">
+              <img src="./images/12.png" alt="12">
+              <span>너의 순간</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet02">
+          <ul>
+            <li>
+              <span>15:00</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>지옥만세</span></a>
+            </li>
+            <li>
+              <span>15:30</span>
+              <a href="#!" class="green">
+              <img src="./images/12.png" alt="12">
+              <span>(2023BPFF) <br>홀구트</span></a>
+            </li>
+            <li>
+              <span>17:00</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>콘크리트 유토피아</span></a>
+            </li>
+            <li>
+              <span>17:20</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>강변의 무코리타</span></a>
+            </li>
+            <li>
+              <span>18:00</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>불코노고프 대위<br>탈출하다</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet03">
+          <ul>
+            <li>
+              <span>10:00</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>불코노고프 대위<br>탈출하다</span></a>
+            </li>
+            <li>
+              <span>11:00</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>달짝지근해 : 7510</span></a>
+            </li>
+            <li>
+              <span>13:00</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>강변의 무코리타</span></a>
+            </li>
+            <li>
+              <span>13:30</span>
+              <a href="#!" class="green">
+              <img src="./images/12.png" alt="12">
+              <span>그녀의 취미생활</span></a>
+            </li>
+            <li>
+              <span>17:00</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)기후변화 최후의 마지노선</span></a>
+            </li>
+            <li>
+              <span>10:00</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>불코노고프 대위<br>탈출하다</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet04">
+          <ul>
+            <li>
+              <span>11:00</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)툰드라의 경고</span></a>
+            </li>
+            <li>
+              <span>13:00</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)불편한 질문/연결된 재난</span></a>
+            </li>
+            <li>
+              <span>13:30</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)맨 카인드 맨</span></a>
+            </li>
+            <li>
+              <span>14:30</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>타겟</span></a>
+            </li>
+            <li>
+              <span>16:30</span>
+              <a href="#!" class="green">
+              <img src="./images/12.png" alt="12">
+              <span>너의 순간</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet05">
+          <ul>
+            <li>
+              <span>10:30</span>
+              <a href="#!" class="green">
+              <img src="./images/12.png" alt="12">
+              <span>너의 순간</span></a>
+            </li>
+            <li>
+              <span>11:30</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>달짝지근해 : 7510</span></a>
+            </li>
+            <li>
+              <span>12:30</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>지옥만세</span></a>
+            </li>
+            <li>
+              <span>16:30</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>콘크리트 유토피아</span></a>
+            </li>
+            <li>
+              <span>18:30</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>그녀의 취미생활</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet06">
+          <ul>
+            <li>
+              <span>09:30</span>
+              <a href="#!" class="navy">
+              <img src="./images/15.png" alt="15">
+              <span>소년들</span></a>
+            </li>
+            <li>
+              <span>12:40</span>
+              <a href="#!" class="blue">
+              <img src="./images/12.png" alt="12">
+              <span>그대들은 어떻게 살것인가</span></a>
+            </li>
+            <li>
+              <span>15:30</span>
+              <a href="#!" class="blue">
+              <img src="./images/15.png" alt="15">
+              <span>30일</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet07">
+          <ul>
+            <li>
+              <span>10:00</span>
+              <a href="#!" class="blue">
+              <img src="./images/15.png" alt="15">
+              <span>30일</span></a>
+            </li>
+            <li>
+              <span>13:30</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)맨 카인드 맨</span></a>
+            </li>
+            <li>
+              <span>14:30</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)툰드라의 경고</span></a>
+            </li>
+            <li>
+              <span>15:00</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)불편한 질문/연결된 재난</span></a>
+            </li>
+            <li>
+              <span>16:30</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>달짝지근해 : 7510</span></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="day_tab">
+        <li>15</li>
+        <li>16</li>
+        <li>17</li>
+        <li>18</li>
+        <li>19</li>
+        <li>20</li>
+        <li>21</li>
+      </ul>
+      <ul class="day_sheet day_sheet02">
+        <li class="sheet01">
+          <ul>
+            <li>
+              <span>09:30</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>달짝지근해 : 7510</span></a>
+            </li>
+            <li>
+              <span>12:00</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>타겟</span></a>
+            </li>
+            <li>
+            <li>
+              <span>13:00</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF) <br>불편한 질문/연결된 재난</span></a>
+            </li>
+            <li>
+              <span>13:20</span>
+              <a href="#!" class="green">
+              <img src="./images/12.png" alt="12">
+              <span>너의 순간</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet02">
+          <ul>
+            <li>
+              <span>15:00</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>지옥만세</span></a>
+            </li>
+            <li>
+              <span>15:30</span>
+              <a href="#!" class="green">
+              <img src="./images/12.png" alt="12">
+              <span>(2023BPFF) <br>홀구트</span></a>
+            </li>
+            <li>
+              <span>17:00</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>콘크리트 유토피아</span></a>
+            </li>
+            <li>
+              <span>17:20</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>강변의 무코리타</span></a>
+            </li>
+            <li>
+              <span>18:00</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>불코노고프 대위<br>탈출하다</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet03">
+          <ul>
+            <li>
+              <span>10:00</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>불코노고프 대위<br>탈출하다</span></a>
+            </li>
+            <li>
+              <span>11:00</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>달짝지근해 : 7510</span></a>
+            </li>
+            <li>
+              <span>13:00</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>강변의 무코리타</span></a>
+            </li>
+            <li>
+              <span>13:30</span>
+              <a href="#!" class="green">
+              <img src="./images/12.png" alt="12">
+              <span>그녀의 취미생활</span></a>
+            </li>
+            <li>
+              <span>17:00</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)기후변화 최후의 마지노선</span></a>
+            </li>
+            <li>
+              <span>10:00</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>불코노고프 대위<br>탈출하다</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet04">
+          <ul>
+            <li>
+              <span>11:00</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)툰드라의 경고</span></a>
+            </li>
+            <li>
+              <span>13:00</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)불편한 질문/연결된 재난</span></a>
+            </li>
+            <li>
+              <span>13:30</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)맨 카인드 맨</span></a>
+            </li>
+            <li>
+              <span>14:30</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>타겟</span></a>
+            </li>
+            <li>
+              <span>16:30</span>
+              <a href="#!" class="green">
+              <img src="./images/12.png" alt="12">
+              <span>너의 순간</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet05">
+          <ul>
+            <li>
+              <span>10:30</span>
+              <a href="#!" class="green">
+              <img src="./images/12.png" alt="12">
+              <span>너의 순간</span></a>
+            </li>
+            <li>
+              <span>11:30</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>달짝지근해 : 7510</span></a>
+            </li>
+            <li>
+              <span>12:30</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>지옥만세</span></a>
+            </li>
+            <li>
+              <span>16:30</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>콘크리트 유토피아</span></a>
+            </li>
+            <li>
+              <span>18:30</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>그녀의 취미생활</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet06">
+          <ul>
+            <li>
+              <span>09:30</span>
+              <a href="#!" class="navy">
+              <img src="./images/15.png" alt="15">
+              <span>소년들</span></a>
+            </li>
+            <li>
+              <span>12:40</span>
+              <a href="#!" class="blue">
+              <img src="./images/12.png" alt="12">
+              <span>그대들은 어떻게 살것인가</span></a>
+            </li>
+            <li>
+              <span>15:30</span>
+              <a href="#!" class="blue">
+              <img src="./images/15.png" alt="15">
+              <span>30일</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet07">
+          <ul>
+            <li>
+              <span>10:00</span>
+              <a href="#!" class="blue">
+              <img src="./images/15.png" alt="15">
+              <span>30일</span></a>
+            </li>
+            <li>
+              <span>13:30</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)맨 카인드 맨</span></a>
+            </li>
+            <li>
+              <span>14:30</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)툰드라의 경고</span></a>
+            </li>
+            <li>
+              <span>15:00</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)불편한 질문/연결된 재난</span></a>
+            </li>
+            <li>
+              <span>16:30</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>달짝지근해 : 7510</span></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="day_tab">
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+      </ul>
+      <ul class="day_sheet day_sheet02">
+        <li class="sheet01">
+          <ul>
+            <li>
+              <span>09:40</span>
+              <a href="#!" class="blue">
+              <img src="./images/12.png" alt="12">
+              <span>그대들은 어떻게 살것인가</span></a>
+            </li>
+            <li>
+              <span>10:30</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>달짝지근해 : 7510</span></a>
+            </li>
+            <li>
+              <span>12:00</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>타겟</span></a>
+            </li>
+            <li>
+            <li>
+              <span>13:00</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF) <br>불편한 질문/연결된 재난</span></a>
+            </li>
+            <li>
+              <span>13:20</span>
+              <a href="#!" class="green">
+              <img src="./images/12.png" alt="12">
+              <span>너의 순간</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet02">
+          <ul>
+            <li>
+              <span>15:00</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>지옥만세</span></a>
+            </li>
+            <li>
+              <span>15:30</span>
+              <a href="#!" class="green">
+              <img src="./images/12.png" alt="12">
+              <span>(2023BPFF) <br>홀구트</span></a>
+            </li>
+            <li>
+              <span>17:00</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>콘크리트 유토피아</span></a>
+            </li>
+            <li>
+              <span>17:20</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>강변의 무코리타</span></a>
+            </li>
+            <li>
+              <span>18:00</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>불코노고프 대위<br>탈출하다</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet03">
+          <ul>
+            <li>
+              <span>10:00</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>불코노고프 대위<br>탈출하다</span></a>
+            </li>
+            <li>
+              <span>11:00</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>달짝지근해 : 7510</span></a>
+            </li>
+            <li>
+              <span>13:00</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>강변의 무코리타</span></a>
+            </li>
+            <li>
+              <span>13:30</span>
+              <a href="#!" class="green">
+              <img src="./images/12.png" alt="12">
+              <span>그녀의 취미생활</span></a>
+            </li>
+            <li>
+              <span>17:00</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)기후변화 최후의 마지노선</span></a>
+            </li>
+            <li>
+              <span>10:00</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>불코노고프 대위<br>탈출하다</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet04">
+          <ul>
+            <li>
+              <span>11:00</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)툰드라의 경고</span></a>
+            </li>
+            <li>
+              <span>13:00</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)불편한 질문/연결된 재난</span></a>
+            </li>
+            <li>
+              <span>13:30</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)맨 카인드 맨</span></a>
+            </li>
+            <li>
+              <span>14:30</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>타겟</span></a>
+            </li>
+            <li>
+              <span>16:30</span>
+              <a href="#!" class="green">
+              <img src="./images/12.png" alt="12">
+              <span>너의 순간</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet05">
+          <ul>
+            <li>
+              <span>10:30</span>
+              <a href="#!" class="green">
+              <img src="./images/12.png" alt="12">
+              <span>너의 순간</span></a>
+            </li>
+            <li>
+              <span>11:30</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>달짝지근해 : 7510</span></a>
+            </li>
+            <li>
+              <span>12:30</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>지옥만세</span></a>
+            </li>
+            <li>
+              <span>16:30</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>콘크리트 유토피아</span></a>
+            </li>
+            <li>
+              <span>18:30</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>그녀의 취미생활</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet06">
+          <ul>
+            <li>
+              <span>09:30</span>
+              <a href="#!" class="navy">
+              <img src="./images/15.png" alt="15">
+              <span>소년들</span></a>
+            </li>
+            <li>
+              <span>12:40</span>
+              <a href="#!" class="blue">
+              <img src="./images/12.png" alt="12">
+              <span>그대들은 어떻게 살것인가</span></a>
+            </li>
+            <li>
+              <span>15:30</span>
+              <a href="#!" class="blue">
+              <img src="./images/15.png" alt="15">
+              <span>30일</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet07">
+          <ul>
+            <li>
+              <span>10:00</span>
+              <a href="#!" class="blue">
+              <img src="./images/15.png" alt="15">
+              <span>30일</span></a>
+            </li>
+            <li>
+              <span>13:30</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)맨 카인드 맨</span></a>
+            </li>
+            <li>
+              <span>14:30</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)툰드라의 경고</span></a>
+            </li>
+            <li>
+              <span>15:00</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)불편한 질문/연결된 재난</span></a>
+            </li>
+            <li>
+              <span>16:30</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>달짝지근해 : 7510</span></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="day_tab">
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>01</li>
+        <li>02</li>
+        <li>03</li>
+        <li>04</li>
+      </ul>
+      <ul class="day_sheet day_sheet02">
+        <li class="sheet01">
+          <ul>
+            <li>
+              <span>09:30</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>달짝지근해 : 7510</span></a>
+            </li>
+            <li>
+              <span>12:00</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>타겟</span></a>
+            </li>
+            <li>
+            <li>
+              <span>13:00</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF) <br>불편한 질문/연결된 재난</span></a>
+            </li>
+            <li>
+              <span>13:20</span>
+              <a href="#!" class="green">
+              <img src="./images/12.png" alt="12">
+              <span>너의 순간</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet02">
+          <ul>
+            <li>
+              <span>12:00</span>
+              <a href="#!" class="pink">
+                <img src="./images/12.png" alt="12">
+                <span>달짝지근해 : 7510</span></a>
+              </li>
+            </li>
+            <li>
+              <span>15:00</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>지옥만세</span></a>
+            </li>
+            <li>
+              <span>15:30</span>
+              <a href="#!" class="green">
+              <img src="./images/12.png" alt="12">
+              <span>(2023BPFF) <br>홀구트</span></a>
+            </li>
+            <li>
+              <span>17:00</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>콘크리트 유토피아</span></a>
+            </li>
+            <li>
+              <span>17:20</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>강변의 무코리타</span></a>
+            </li>
+            <li>
+              <span>18:00</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>불코노고프 대위<br>탈출하다</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet03">
+          <ul>
+            <li>
+              <span>10:00</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>불코노고프 대위<br>탈출하다</span></a>
+            </li>
+            <li>
+              <span>11:00</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>달짝지근해 : 7510</span></a>
+            </li>
+            <li>
+              <span>13:30</span>
+              <a href="#!" class="green">
+              <img src="./images/12.png" alt="12">
+              <span>그녀의 취미생활</span></a>
+            </li>
+            <li>
+              <span>17:00</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)기후변화 최후의 마지노선</span></a>
+            </li>
+            <li>
+              <span>10:00</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>불코노고프 대위<br>탈출하다</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet04">
+          <ul>
+            <li>
+              <span>13:00</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)불편한 질문/연결된 재난</span></a>
+            </li>
+            <li>
+              <span>13:30</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)맨 카인드 맨</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet05">
+          <ul>
+            <li>
+              <span>10:30</span>
+              <a href="#!" class="green">
+              <img src="./images/12.png" alt="12">
+              <span>너의 순간</span></a>
+            </li>
+            <li>
+              <span>11:30</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>달짝지근해 : 7510</span></a>
+            </li>
+            <li>
+              <span>16:30</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>콘크리트 유토피아</span></a>
+            </li>
+            <li>
+              <span>18:30</span>
+              <a href="#!" class="navy">
+              <img src="./images/12.png" alt="12">
+              <span>그녀의 취미생활</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet06">
+          <ul>
+            <li>
+              <span>09:30</span>
+              <a href="#!" class="navy">
+              <img src="./images/15.png" alt="15">
+              <span>소년들</span></a>
+            </li>
+            <li>
+              <span>12:40</span>
+              <a href="#!" class="blue">
+              <img src="./images/12.png" alt="12">
+              <span>그대들은 어떻게 살것인가</span></a>
+            </li>
+            <li>
+              <span>15:30</span>
+              <a href="#!" class="blue">
+              <img src="./images/15.png" alt="15">
+              <span>30일</span></a>
+            </li>
+            <li>
+              <span>17:30</span>
+              <a href="#!" class="pink">
+                <img src="./images/12.png" alt="12">
+                <span>달짝지근해 : 7510</span></a>
+              </li>
+            </li>
+          </ul>
+        </li>
+        <li class="sheet07">
+          <ul>
+            <li>
+              <span>10:00</span>
+              <a href="#!" class="blue">
+              <img src="./images/15.png" alt="15">
+              <span>30일</span></a>
+            </li>
+            <li>
+              <span>12:40</span>
+              <a href="#!" class="blue">
+              <img src="./images/12.png" alt="12">
+              <span>그대들은 어떻게 살것인가</span></a>
+            </li>
+            <li>
+              <span>14:30</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)툰드라의 경고</span></a>
+            </li>
+            <li>
+              <span>15:00</span>
+              <a href="#!" class="green">
+              <img src="./images/all.png" alt="all">
+              <span>(2023BPFF)불편한 질문/연결된 재난</span></a>
+            </li>
+            <li>
+              <span>16:30</span>
+              <a href="#!" class="pink">
+              <img src="./images/12.png" alt="12">
+              <span>달짝지근해 : 7510</span></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section> <!------calendar_pc------>
+
+  <footer class="footer">
+    <ul class="list">
+      <li><a href="#!">개인정보처리방침</a></li>
+      <li><a href="#!">이용약관</a></li>
+      <li><a href="#!">장애인 이용안내</a></li>
+      <li><a href="#!">오시는길</a></li>
+      <li><a href="#!">사이트맵</a></li>
+    </ul>
+    <ul class="sns_images">
+      <li><a href="#!"><img src="./images/facebook.png" alt="facebook"></a></li>
+      <li><a href="#!"><img src="./images/twitter.png" alt="twitter"></a></li>
+      <li><a href="#!"><img src="./images/youtube.png" alt="youtube"></a></li>
+      <li><a href="#!"><img src="./images/instagram.png" alt="instagram"></a></li>
+    </ul>
+    <div class="f_logo">
+      <img src="./images/푸터 로고.png" alt="푸터로고">
+    </div>
+    <div class="adress">
+      <p>(우)48058 부산광역시 해운대구 수영강변대로 120 영화의전당(우동 1467번지) <br>
+        TEL. 051-780-6000/6080   Fax. 051-780-6019
+        <br><br>  
+        
+        (재)영화의전당  대표자 김진해 사업자번호 : 617-82-11427 <br>
+        통신판매업신고 : 부산해운 제0510호 사업자정보 확인  <br><br>
+        
+        COPYRIGHT(C) BUSAN CINEMA CENTER. ALL RIGHTS RESERVED</p>
+    </div><br>
+    <div class="call">
+      <p>콜센터 051-780-6000 <br>
+        -콜센터 이용시간 09:00 ~ 21:00</p>
+    </div>
+  </footer>
+
+  <footer class="footer01">
+    <div class="footer_box">
+      <ul>
+        <img src="./images/푸터 로고.png" alt="푸터로고">
+        <li>(우)48058 부산광역시 해운대구 수영강변대로 120 영화의전당(우동 1467번지) <br>
+          TEL. 051-780-6000/6080   Fax. 051-780-6019</li>
+        <li>(재)영화의전당  대표자 김진해 사업자번호 : 617-82-11427 <br>
+          통신판매업신고 : 부산해운 제0510호 사업자정보 확인 </li>
+        <li>COPYRIGHT(C) BUSAN CINEMA CENTER. ALL RIGHTS RESERVED</li>
+      </ul>
+      <div>
+        <ul class="map">
+          <li><a href="#!">개인정보처리방침</a></li>
+          <li><a href="#!">이용약관</a></li>
+          <li><a href="#!">장애인 이용안내</a></li>
+          <li><a href="#!">오시는길</a></li>
+          <li><a href="#!">사이트맵</a></li>
+        </ul>
+        <ul class="sns_images">
+          <li><a href="#!"><img src="./images/facebook.png" alt="facebook"></a></li>
+          <li><a href="#!"><img src="./images/twitter.png" alt="twitter"></a></li>
+          <li><a href="#!"><img src="./images/youtube.png" alt="youtube"></a></li>
+          <li><a href="#!"><img src="./images/instagram.png" alt="instagram"></a></li>
+        </ul>
+        <div>
+          <p>콜센터 051-780-6000</p>
+          <p>콜센터 이용시간 09:00 ~ 21:00</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

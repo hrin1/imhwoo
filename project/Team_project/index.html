@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 파비콘 에러 -->
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <title>BusanCinemaCenter</title>
+  
+  <link rel="stylesheet" href="./css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="module" crossorigin src="assets/index.3ea0cc48.js"></script>
+  <link rel="modulepreload" href="assets/vendor.3d228fec.js">
+  <link rel="stylesheet" href="assets/index.000c16e0.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.3/jquery.scrollTo.min.js"></script>
+  
+  <script src="./slick/slick.min.js"></script>
+  <link rel="stylesheet" href="./slick/slick-theme.css">
+  <link rel="stylesheet" href="./slick/slick.css">
+  
+  <script>
+    $(function(){
+      $(window).scroll(function(){
+        if($(this).scrollTop() >= 200) {
+          $('.btn_top').stop().fadeIn('200')
+        } else {
+          $('.btn_top').stop().fadeOut('200')
+        }
+      })
+      $('.btn_top').click(function(e){
+        e.preventDefault()
+        $(window).scrollTo({top:0, left:0},500)
+      })
+    }) //btn_top
+
+    $(window).scroll(function(){
+    if ($('.header01').offset().top) {
+      $('.header01').css('backdrop-filter','blur( 5.5px )')
+      // $('.header01').css('backdrop-filter','blur( 7.5px )')
+    } else {
+      $('.header01 ').css('backdrop-filter','unset')
+      // $('.header01').css('-webkit-backdrop-filter','unset')
+    }
+    }) //header_blur
+
+    $(function(){
+      $('.menu1').click(function(){
+        $('.menu1 ul').slideUp();
+        if ($(this).children('.menu1 ul').is(':hidden')){
+          $(this).children('.menu1 ul').slideDown(300);
+        } else{
+          $(this).children('.menu1 ul').slideUp(300);
+        }
+      });
+    }) //ham_menu
+
+    
+    $(function(){
+      let tab = $('.performance ul li')
+      let sheet = $('.performance .performance_box .tab')
+      let index = 0
+
+      $('.performance .performance_box .tab:first').css('display','block')
+        tab.click(function(){
+        index = $(this).index()
+        tab.removeClass('on')
+        tab.eq(index).addClass('on')
+
+        sheet.css('display','none')
+        sheet.eq(index).css('display','block')
+    })//performance_tab
+
+      let ul =$('.performance01 ul')
+      let div =$('.performance01 ul div')
+      ul.click(function(){
+        ul.removeClass('on')
+        $(this).addClass('on')
+      })
+      
+      div.click(function(){
+        div.removeClass('on')
+        $(this).addClass('on')
+    }) //performance_accordion
+  })
+
+    $(function(){
+      let tab = $('.pick_box .hash li')
+      let sheet = $('.pick')
+      let index = 0
+
+      $('.pick:first').css('display','block')
+        tab.click(function(){
+        index = $(this).index()
+        tab.removeClass('on')
+        tab.eq(index).addClass('on')
+
+        sheet.css('display','none')
+        sheet.eq(index).css('display','block')
+    })
+    })//pick
+    
+    $(function(){
+      let tab = $('.notice_box .notice_sheet li')
+      let sheet = $('.notice_box .notice_tab li')
+      let index = 0
+
+      $('.notice_box .notice_tab li:first').css('display','block')
+        tab.hover(function(){
+        index = $(this).index()
+        tab.removeClass('on')
+        tab.eq(index).addClass('on')
+
+        sheet.css('display','none')
+        sheet.eq(index).css('display','block')
+    })
+    }) //notice_box tab
+
+    $(function(){
+      $('.event').slick({
+        autoplay:true,
+        autoplaySpeed:2000,
+        dots:true
+      })
+    })
+  </script>
+
+</head>
+<body>
+  
+  <div class="btn_top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </div>
+
+  <header id="header">
+    <div class="nav">
+      <div class="search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <div class="logo">
+        <a href="#"><img src="./images/logo.png" alt="logo"></a>
+      </div>
+      <div class="ham">
+        <label for="ham_chk" class="ham_open"><img src="./images/ham.png" alt="ham"></label>
+      </div>
+    </div>
+
+    <input type="checkbox" id="ham_chk">
+    
+    <div class="ham_menu">
+      <ul class="lnb">
+        <li><a href="#!">로그인</a></li>
+        <li><a href="#!">회원가입</a></li>
+        <li>
+          <select>
+            <option>KO</option>
+            <option>EN</option>
+          </select>
+        </li>
+        <label for="ham_chk" class="ham_close"><i class="fa-solid fa-x"></i></label>
+      </ul>
+      <ul class="accordion">
+        <li class="menu1">
+          <p>영화의전당</p>
+          <ul>
+            <li><a href="#">센터소개</a></li>
+            <li><a href="#">인사말</a></li>
+            <li><a href="#">연혁</a></li>
+            <li><a href="#">건축개요</a></li>
+          </ul>
+        </li>
+        <li class="menu1">
+          <p>상영프로그램</p>
+          <ul>
+            <li><a href="./index_02.html">상영시간표</a></li>
+            <li><a href="#">현재상영프로그램</a></li>
+            <li><a href="#">상영예정프로그램</a></li>
+            <li><a href="#">지난프로그램</a></li>
+          </ul>
+        </li>
+        <li class="menu1">
+          <p>영화</p>
+          <ul>
+            <li><a href="#">영화일정</a></li>
+            <li><a href="#">영화와비평</a></li>
+            <li><a href="#">좌석배치도</a></li>
+            <li><a href="#">대관</a></li>
+          </ul>
+        </li>
+        <li class="menu1">
+        <p>공연전시</p>
+          <ul>
+            <li><a href="#">공연일정</a></li>
+            <li><a href="#">전시일정</a></li>
+            <li><a href="#">좌석배치도</a></li>
+            <li><a href="#">대관</a></li>
+          </ul>
+        </li>
+        <li class="menu1">
+          <p>아카데미</p>
+          <ul>
+            <li><a href="#">아카데미일정</a></li>
+            <li><a href="#">영화아카데미</a></li>
+            <li><a href="#">예술아카데미</a></li>
+            <li><a href="#">어린이아카데미</a></li>
+            <li><a href="#">대관</a></li>
+          </ul>
+        </li>
+        <li class="menu1">
+          <p>영화도서관</p>
+          <ul>
+            <li><a href="#">이용안내</a></li>
+            <li><a href="#">자료검색</a></li>
+            <li><a href="#">행사안내</a></li>
+            <li><a href="#">필름아카이브</a></li>
+          </ul>
+        </li>
+        <li class="menu1">
+          <p>공지사항</p>
+          <ul>
+            <li><a href="#">이벤트</a></li>
+            <li><a href="#">제휴</a></li>
+            <li><a href="#">회원제안내</a></li>
+            <li><a href="#">메세나기업모집</a></li>
+            <li><a href="#">광고신청</a></li>
+            <li><a href="#">촬영신청</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </header>   <!----header----->
+
+  <header class="header01">
+    <nav class="lnb">
+      <div class="logo01">
+        <img src="./images/logo.png" alt="logo">
+      </div>
+      <div class="search">
+        <input type="search" onclick="onfocus">
+        <a href="#!"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></a>
+      </div>
+      <ul>
+        <li><a href="#!">로그인</a></li>
+        <li><a href="#!">회원가입</a></li>
+        <li><a href="#!">마이페이지</a></li>
+        <li>
+          <select>
+            <option>LANGUAGE</option>
+            <option>KOREA</option>
+            <option>ENGLISH</option>
+          </select>
+        </li>
+      </ul>
+    </nav><!-------header01------>
+
+    <div class="menu">
+      <ul class="title_menu">
+        <li class="title_sub"><a href="#!">영화의전당</a>
+          <ul>
+            <li><a href="#!">센터소개</a></li>
+            <li><a href="#!">인사말</a></li>
+            <li><a href="#!">연혁</a></li>
+            <li><a href="#!">건축개요</a></li>
+          </ul>
+        </li>
+        <li class="title_sub"><a href="#!">상영프로그램</a>
+          <ul>
+            <li><a href="./index_02.html">상영시간표</a></li>
+            <li><a href="#!">현재상영프로그램</a></li>
+            <li><a href="#!">상영예정프로그램</a></li>
+            <li><a href="#!">지난프로그램</a></li>
+            <li><a href="#!">예매안내</a></li>
+          </ul>
+        </li>
+        <li class="title_sub"><a href="#!">영화</a>
+          <ul>
+            <li><a href="#!">영화관안내</a></li>
+            <li><a href="#!">영화일정</a></li>
+            <li><a href="#!">영화와비평</a></li>
+          </ul>
+        </li>
+        <li class="title_sub"><a href="#!">공연전시</a>
+          <ul>
+            <li><a href="#!">공연장안내</a></li>
+            <li><a href="#!">공연일정</a></li>
+            <li><a href="#!">전시일정</a></li>
+          </ul>
+        </li>
+        <li class="title_sub"><a href="#!">아카데미</a>
+          <ul>
+            <li><a href="#!">아카데미안내</a></li>
+            <li><a href="#!">아카데미일정</a></li>
+            <li><a href="#!">영화아카데미</a></li>
+            <li><a href="#!">예술아카데미</a></li>
+            <li><a href="#!">어린이아카데미</a></li>
+          </ul>
+        </li>
+        <li class="title_sub"><a href="#!">영화도서관</a>
+          <ul>
+            <li><a href="#!">이용안내</a></li>
+            <li><a href="#!">자료검색</a></li>
+            <li><a href="#!">행사안내</a></li>
+            <li><a href="#!">필름아카이브</a></li>
+          </ul>
+        </li>
+        <li class="title_sub"><a href="#!">공지사항</a>
+          <ul>
+            <li><a href="#!">이벤트</a></li>
+            <li><a href="#!">제휴</a></li>
+            <li><a href="#!">회원제안내</a></li>
+            <li><a href="#!">메세나기업모집</a></li>
+            <li><a href="#!">시설안내</a></li>
+            <li><a href="#!">오시는길</a></li>
+            <li><a href="#!">광고신청</a></li>
+            <li><a href="#!">촬영신청</a></li>
+            <li><a href="#!">고객센터</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!----pc_menu----->
+
+  </header><!------pc_header-------->
+
+  <div class="back">
+    <picture>
+      <source media="(min-width:1024px)" srcset="./images/background2.jpg">
+      <source media="(min-width:320px)" srcset="./images/background_tablet.jpg">
+      <source media="(min-width:320px)" srcset="./images/background_mobile.jpg">
+      <img src="./images/background_mobile.jpg" alt="이미가 없을때 대체" width="100%">
+    </picture>
+    <div class="font">
+      <p>미래를 향한 First Mover,<br>영화의 전당!</p>
+    </div>
+  </div>
+
+  <p class="contents_title">
+    영화 프로그램
+  </p>
+<div class="bodywrap">
+  <section class="movie">
+    <div class="movie_box">
+      <div>
+        <img src="./images/헤어질결심.jpg" alt="헤어질결심">
+        <p class="number">1</p>
+        <p class="title">헤어질 결심</p>
+        <p class="notice">
+          <i class="fa-solid fa-star"></i>7.9 | 개봉일 2023.10.19
+        </p>
+        <a href="#!" class="more">상세정보</a>
+        <a href="#!" class="reserved">예매하기</a>
+      </div>
+      <div>
+        <img src="./images/콜미바이유어네임.jpg" alt="콜미바이유어네임">
+        <p class="number">2</p>
+        <p class="title">콜미바이유어네임</p>
+        <p class="notice">
+          <i class="fa-solid fa-star"></i>8.1 | 개봉일 2023.10.15
+        </p>
+        <a href="#!" class="more">상세정보</a>
+        <a href="#!" class="reserved">예매하기</a>
+      </div>
+      <div>
+        <img src="./images/30일.jpg" alt="30일">
+        <p class="number">3</p>
+        <p class="title">30일</p>
+        <p class="notice">
+          <i class="fa-solid fa-star"></i>8.5 | 개봉일 2023.09.20
+        </p>
+        <a href="#!" class="more">상세정보</a>
+        <a href="#!" class="reserved">예매하기</a>
+      </div>
+    </div>
+  </section><!----movie----->
+
+  <div id="app" class="movie01">
+    <div class="triple-slider">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img class="bg-image" src="./images/헤어질결심.jpg" alt="헤어질결심">
+            <p class="title01">헤어질결심</p>
+            <p class="title02"><i class="fa-solid fa-star"></i>7.9 |  개봉일 2023.10.19</p>
+            <div class="movie_btn">
+              <div class="info"><a href="#!">상세정보</a></div>
+              <div class="reserve"><a href="#!">예매하기</a></div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img class="bg-image" src="./images/콜미바이유어네임.jpg" alt="콜미바이유어네임">
+            <p class="title01">콜미바이유어네임</p>
+            <p class="title02"><i class="fa-solid fa-star"></i>8.1 | 개봉일 2023.10.15</p>
+            <div class="movie_btn">
+              <div class="info"><a href="#!">상세정보</a></div>
+              <div class="reserve"><a href="#!">예매하기</a></div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img class="bg-image" src="./images/30일.jpg" alt="30일">
+            <p class="title01">30일</p>
+            <p class="title02"><i class="fa-solid fa-star"></i>7.9 | 개봉일 2023.10.19</p>
+            <div class="movie_btn">
+              <div class="info"><a href="#!">상세정보</a></div>
+              <div class="reserve"><a href="#!">예매하기</a></div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img class="bg-image" src="./images/더썬.png" alt="더썬">
+            <p class="title01">더썬</p>
+            <p class="title02"><i class="fa-solid fa-star"></i>8.8 | 개봉일 2023.10.02</p>
+            <div class="movie_btn">
+              <div class="info"><a href="#!">상세정보</a></div>
+              <div class="reserve"><a href="#!">예매하기</a></div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img class="bg-image" src="./images/Screenshot＿20220218－164733＿NAVER.jpg" alt="82년생김지영">
+            <p class="title01">82년생 김지영</p>
+            <p class="title02"><i class="fa-solid fa-star"></i>9.2 | 개봉일 2023.09.19</p>
+            <div class="movie_btn">
+              <div class="info"><a href="#!">상세정보</a></div>
+              <div class="reserve"><a href="#!">예매하기</a></div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img class="bg-image" src="./images/에스터로이드 시티.jpg" alt="에스터로이드 시티">
+            <p class="title01">애스터로이드 시티</p>
+            <p class="title02"><i class="fa-solid fa-star"></i>8.0 | 개봉일 2023.08.12</p>
+            <div class="movie_btn">
+              <div class="info"><a href="#!">상세정보</a></div>
+              <div class="reserve"><a href="#!">예매하기</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="contents_title">
+    전시 프로그램
+  </p>
+
+  <section class="show">
+    <div class="show_box">
+      <div>
+        <h4>이것 역시 지도</h4>
+        <img src="./images/전시4.jpg" alt="전시4">
+        <p class="title">전시장소 : 기타</p>
+        <p class="notice">2023.10.16 ~ 2023.10.29
+        </p>
+        <div class="buy">
+          <a href="#!" class="more">상세정보</a>
+          <a href="#!" class="reserved">예매하기</a>
+        </div>
+        <div class="show_pc">
+          <h4>이것 역시 지도</h4>
+          <p class="title">전시장소 : 기타<br>
+            2023.10.16 ~ 2023.10.29</p>
+          <div class="buy01">
+            <a href="#!" class="more">상세정보</a>
+            <a href="#!" class="reserved">예매하기</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4>럭스 : 시적</h4>
+        <img src="./images/전시3.jpg" alt="전시3">
+        <p class="title">전시장소 : 기타</p>
+        <p class="notice">2023.09.05 ~ 2023.12.31
+        </p>
+        <div class="buy">
+          <a href="#!" class="more">상세정보</a>
+          <a href="#!" class="reserved">예매하기</a>
+        </div>
+        <div class="show_pc">
+          <h4>럭스 : 시적</h4>
+          <p class="title">전시장소 : 기타<br>
+            2023.09.05 ~ 2023.12.31</p>
+          <div class="buy01">
+            <a href="#!" class="more">상세정보</a>
+            <a href="#!" class="reserved">예매하기</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4>부다패스트 1900</h4>
+        <img src="./images/전시2.jpg" alt="전시2">
+        <p class="title">전시장소 : 기타</p>
+        <p class="notice">2023.10.05 ~ 2023.11.25
+        </p>
+        <div class="buy">
+          <a href="#!" class="more">상세정보</a>
+          <a href="#!" class="reserved">예매하기</a>
+        </div>
+        <div class="show_pc">
+          <h4>부다패스트 1900</h4>
+          <p class="title">전시장소 : 기타<br>
+            2023.10.05 ~ 2023.11.25</p>
+          <div class="buy01">
+            <a href="#!" class="more">상세정보</a>
+            <a href="#!" class="reserved">예매하기</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4>장소의 순환</h4>
+        <img src="./images/전시1.jpg" alt="전시1">
+        <p class="title">전시장소 : 기타</p>
+        <p class="notice">2023.09.21 ~ 2023.10.29
+        </p>
+        <div class="buy">
+          <a href="#!" class="more">상세정보</a>
+          <a href="#!" class="reserved">예매하기</a>
+        </div>
+        <div class="show_pc">
+          <h4>장소의 순환</h4>
+          <p class="title">전시장소 : 기타<br>
+            2023.09.21 ~ 2023.10.29</p>
+          <div class="buy01">
+            <a href="#!" class="more">상세정보</a>
+            <a href="#!" class="reserved">예매하기</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!----show----->
+
+  <p class="contents_title">
+    공연 프로그램
+  </p>
+
+  <section class="performance">
+    <ul class="list">
+      <li class="tab01 on"></li>
+      <li class="tab02"></li>
+      <li class="tab03"></li>
+      <li class="tab04"></li>
+    </ul>
+    <div class="performance_box">
+      <ul class="tab on">
+        <li class="poster">
+          <img src="./images/공연.jpg" alt="공연">
+          <div class="box">
+            [무용] SIDance, 최수진 : Alone
+          </div>
+        </li>
+        <li class="text">
+          <h4>테너 </h4>
+          <p>
+          공연날짜 | 2023.10.25 <br> 
+          공연장소 | 하늘연극장 <br>
+          관람등급 | 전체관람가
+          </p>
+          <p class="text01">공연소개</p>
+          <p class="text02">한국영화음악을 이끌어가고 있는 영화 음악감독을 중심으로 매월 색다른 주제가 어우러진 영화 음악콘서트부산영화음악협회 대표이자 부산 출신 영화음악감독 손한묵이 2023년 11시 음악회의 호스트가 되어 최고의 연주자들과 함께 관객 여러분을 찾아갑니다.
+          </p>
+          <p class="href"><a href="#!">더보기 <i class="fa-solid fa-angle-right"></i></a></p>
+        </li>
+      </ul>
+      <ul class="tab">
+        <li class="poster">
+          <img src="./images/라보엠.jpg" alt="라보엠">
+          <div class="box">
+            2023 콘서트 오페라 <라 보엠>
+          </div>
+        </li>
+        <li class="text">
+          <h4>2023 콘서트 오페라 <라 보엠></h4>
+          <p>
+          공연날짜 | 2023.10.31 <br> 
+          공연장소 | 하늘연극장 <br>
+          관람등급 | 전체관람가
+          </p>
+          <p class="text01">공연소개</p>
+          <p class="text02">푸치니의 오페라 라보엠은 1986년 이탈리아 토리노(il Teatro Regio di Torino) 극장에서 초연되었다. 당시 최고의 명성을 구가하던 지휘자 아르투로 토스카니니(A. Toscanini)의 지휘아래 초연부터 호평을 받았지만 같은 해 동일한 줄거리로 오페라를 발표한 레온카발로(R. Leoncavallo)와의 경쟁으로 즉각적인 성공을 얻지는 못하였다.
+          </p>
+          <p class="href"><a href="#!">더보기 <i class="fa-solid fa-angle-right"></i></a></p>
+        </li>
+      </ul>
+      <ul class="tab">
+        <li class="poster">
+          <img src="./images/재즈.jpg" alt="재즈">
+          <div class="box">
+            2023 재즈 앳 영화의전당 <디즈니 인 재즈 콘서트>
+          </div>
+        </li>
+        <li class="text">
+          <h4>2023 재즈 앳 영화의전당 <디즈니 인 재즈 콘서트></h4>
+          <p>
+          공연날짜 | 2023.12.13 <br> 
+          공연장소 | 하늘연극장 <br>
+          관람등급 | 전체관람가
+          </p>
+          <p class="text01">공연소개</p>
+          <p class="text02">전 세계적으로 사랑받고 있는 디즈니 애니메이션 오리지널 사운드 트랙들이 재즈의 옷을 입고 새로운 모습으로 무대에 펼쳐집니다. 자유롭고 즉흥적인 개성 넘치는 재즈 편곡으로 <겨울왕국>, <알라딘>, <토이스토리>, <라이온킹>, <업>, <미녀와 야수>, <코코>를 비롯한 디즈니의 명곡들을 모두가 즐길 수 있는 새로운 공연 콘텐츠로 선보입니다.
+          </p>
+          <p class="href"><a href="#!">더보기 <i class="fa-solid fa-angle-right"></i></a></p>
+        </li>
+      </ul>
+      <ul class="tab">
+        <li class="poster">
+          <img src="./images/스즈메.jpg" alt="스즈메">
+          <div class="box">
+            스즈메의 문단속 필름 콘서트
+          </div>
+        </li>
+        <li class="text">
+          <h4>스즈메의 문단속 필름 콘서트</h4>
+          <p>
+          공연날짜 | 2023.10.25 <br> 
+          공연장소 | 하늘연극장 <br>
+          관람등급 | 전체관람가
+          </p>
+          <p class="text01">공연소개</p>
+          <p class="text02">본 공연은 스즈메의 문단속 영화 배급사인 미디어캐슬, 제이박스 엔터테인먼트, 그리고 또모가 함께 제작한다.
+            연주를 맡은 TMO 오케스타라는 에리히 버겔 국제 지휘 콩쿠르에서 오케스트라를 수상한 송민규 지휘자를 필두로 국내외에서 활동하고 있는 프로 연주자로 구성됐다. 
+          </p>
+          <p class="href"><a href="#!">더보기 <i class="fa-solid fa-angle-right"></i></a></p>
+        </li>
+      </ul>
+    </div>
+  </section><!----performance----->
+
+  <section class="performance01">
+    <ul class="acc01 on">
+      <li class="title">
+        <div class="on">
+          <p>테너 김민석 리사이틀: 가을 스케치</p>
+        </div>
+      </li>
+      <li class="text">
+        <h4>테너 김민석 리사이틀: 가을 스케치</h4>
+        <p>
+        공연날짜 | 2023.11.11 <br> 
+        공연장소 | 하늘연극장 <br>
+        관람등급 | 전체관람가
+        </p>
+        <p class="text01">공연소개</p>
+        <p class="text02">
+          테너 김민석이 가을 낭만 가득한 음악회로 관객을 초대한다. 김민석은 오는 11월 11일 오후 7시 영화의 전당에서 첫 가곡 리사이틀 ‘가을 스케치’를 연다. 지난 2월 데뷔 앨범 ‘아리아 다모레’를 발매해 1만장 이상 판매고를 올리며 플래티넘을 기록한 김민석은 현재 클래식 시장에서 주목받는 테너로 독보적인 입지를 자랑한다.
+        </p>
+        <p class="href"><a href="#!">더보기 <i class="fa-solid fa-angle-right"></i></a></p>
+      </li>
+    </ul>
+    <ul class="acc02">
+      <li class="title">
+        <div>
+          <p>2023 콘서트 오페라 <라 보엠></p>
+        </div>
+      </li>
+      <li class="text">
+        <h4>2023 콘서트 오페라 <라 보엠></h4>
+        <p>
+        공연날짜 | 2023.10.31 <br> 
+        공연장소 | 하늘연극장 <br>
+        관람등급 | 전체관람가
+        </p>
+        <p class="text01">공연소개</p>
+        <p class="text02">푸치니의 오페라 라보엠은 1986년 이탈리아 토리노(il Teatro Regio di Torino) 극장에서 초연되었다. 당시 최고의 명성을 구가하던 지휘자 아르투로 토스카니니(A. Toscanini)의 지휘아래 초연부터 호평을 받았지만 같은 해 동일한 줄거리로 오페라를 발표한 레온카발로(R. Leoncavallo)와의 경쟁으로 즉각적인 성공을 얻지는 못하였다.
+        </p>
+        <p class="href"><a href="#!">더보기 <i class="fa-solid fa-angle-right"></i></a></p>
+      </li>
+    </ul>
+    <ul class="acc03">
+      <li class="title">
+        <div>
+          <p>2023 재즈 앳 영화의전당 <디즈니 인 재즈 콘서트></p>
+        </div>
+      </li>
+      <li class="text">
+        <h4>2023 재즈 앳 영화의전당 <디즈니 인 재즈 콘서트></h4>
+        <p>
+        공연날짜 | 2023.12.13 <br> 
+        공연장소 | 하늘연극장 <br>
+        관람등급 | 전체관람가
+        </p>
+        <p class="text01">공연소개</p>
+        <p class="text02">전 세계적으로 사랑받고 있는 디즈니 애니메이션 오리지널 사운드 트랙들이 재즈의 옷을 입고 새로운 모습으로 무대에 펼쳐집니다. 자유롭고 즉흥적인 개성 넘치는 재즈 편곡으로 <겨울왕국>, <알라딘>, <토이스토리>, <라이온킹>, <업>, <미녀와 야수>, <코코>를 비롯한 디즈니의 명곡들을 모두가 즐길 수 있는 새로운 공연 콘텐츠로 선보입니다.
+        </p>
+        <p class="href"><a href="#!">더보기<i class="fa-solid fa-angle-right"></i></a></p>
+      </li>
+    </ul>
+    <ul class="acc04">
+      <li class="title">
+        <div>
+          <p>스즈메의 문단속 필름 콘서트</p>
+        </div>
+        </li>
+      <li class="text">
+        <h4>스즈메의 문단속 필름 콘서트</h4>
+        <p>
+        공연날짜 | 2023.10.25 <br> 
+        공연장소 | 하늘연극장 <br>
+        관람등급 | 전체관람가
+        </p>
+        <p class="text01">공연소개</p>
+        <p class="text02">본 공연은 스즈메의 문단속 영화 배급사인 미디어캐슬, 제이박스 엔터테인먼트, 그리고 또모가 함께 제작한다.
+        연주를 맡은 TMO 오케스타라는 에리히 버겔 국제 지휘 콩쿠르에서 오케스트라를 수상한 송민규 지휘자를 필두로 국내외에서 활동하고 있는 프로 연주자로 구성됐다.
+        </p>
+        <p class="href"><a href="#!">더보기 <i class="fa-solid fa-angle-right"></i></a></p>
+      </li>
+    </ul>
+  </section> <!----performance_accordion----->
+
+  <p class="contents_title">
+    영화와 비평
+  </p>
+
+  <section class="ment">
+    <div class="cut">
+      <div class="images">
+        <img src="./images/cut.png" alt="cut">
+      </div>
+      <div class="title">
+        <p><그녀의 취미생활> 가정폭력 피해자가할머니의 품에서 꾼 하룻밤의 꿈 </p>
+        <p> 가정폭력을 겪고 이혼한 뒤 자신을 키워준 할머니가 있는 시골 고향집으로 돌아온 정인(정이서)... </p>
+        <p>2023년 부천국제판타스틱영화제 2관왕! 정이서, 김혜나 주연의 킬링 워맨스릴러 <그녀의 취미생활>로 첫 장편 데뷔를 알린 하명미 감독에 이목이 집중되고 있다.</p>
+        <a href="#!">더 많은 비평보기<i class="fa-solid fa-angle-right"></i></a>
+      </div>
+    </div>
+    <div class="add">
+      <div>
+        <a href="#!"><img src="./images/비닐하우스.jpg" alt="비닐하우스">
+        <p><비닐하우스></p>
+        <p>비닐하우스에 살고 있는 ‘문정’은 아들과 함께 살 제대로 된 집을 구하기 위해 간병인 일을 한다...</p>
+        </a>
+      </div>
+      <div>
+        <a href="#!">
+        <img src="./images/82년생.jpg" alt="김지영">
+        <p><82년생 김지영></p>
+        <p>1982년 봄에 태어나 누군가의 딸이자 아내, 동료이자 엄마로 2019년 오늘을 살아가는 ‘지영’(정유미)...</p>
+        </a>
+      </div>
+      <div>
+        <a href="#!">
+        <img src="./images/오펜하이머.jpg" alt="오펜하이머">
+        <p><오펜하이머></p>
+        <p>“나는 이제 죽음이요, 세상의 파괴자가 되었다.” 세상을 구하기 위해 세상을 파괴할 지도 모르는 선택을 해야 하는 천재 과학자의 핵개발 프로젝트...</p>
+        </a>
+      </div>
+      <div>
+        <a href="#!">
+        <img src="./images/애스터로이드시티" alt="애스터로이드 시티">
+        <p><애스터로이드 시티></p>
+        <p>이상하고 아름다운 도시 ‘애스터로이드 시티’ 이제 세상이 달라졌어요. 1955년 가상의 사막 도시이자 운석이 떨어진 도시 ‘애스터로이드 시티’...</p>
+        </a>
+      </div>
+    </div>
+  </section><!--------ment------->
+  
+  <div class="pick_box">
+    <p class="pick_title">
+      영화의 전당 PICK
+    </p>
+    <ul class="hash">
+      <li class="on"><a href="#!">#가족과함께</a></li>
+      <li><a href="#!">#연인과함께</a></li>
+      <li><a href="#!">#친구와함께</a></li>
+    </ul>
+  </div>
+
+  <section class="pick pick_01">
+    <div class="contents_box">
+      <div class="contents">
+        <div class="photo">
+          <img src="./images/PICK_01.jpg" alt="PICK_01">
+        </div>
+        <div class="text">
+          <img src="./images/all.png" alt="all">
+          <span>이터널메모리</span>
+          <span class="time"><i class="fa-regular fa-clock"></i> 85분</span>
+          <p class="date">2023-10-15(일) ~ 2023-10-31(화)</p>
+          <p class="notice">칠레의 저명한 저널리스트이자 피노체트 정권의 범죄를 기록한 작가 아우구스토와 배우이자 활동가이며 문화부장관을 역임한 파울리나는 25년간 사랑을 이어온 백발의 연인이다...</p>
+          <div class="more">
+            <p><a href="#!"><i class="fa-regular fa-heart"></i> 1,250</a></p>
+            <p><i class="fa-solid fa-play"></i> 예고편 재생</p>
+            <p><a href="#!">상세보기</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="contents">
+        <div class="photo">
+          <img src="./images/PICK_02.jpg" alt="PICK_01">
+        </div>
+        <div class="text">
+          <img src="./images/12.png" alt="12">
+          <span>30일</span>
+          <span class="time"><i class="fa-regular fa-clock"></i> 119분</span>
+          <p class="date">2023-10-13(금) ~ 2023-10-15(일)</p>
+          <p class="notice">“완벽한 저에게 신은 저 여자를 던지셨죠” 지성과 외모 그리고 찌질함까지 타고난, '정열'(강하늘). “모기 같은 존재죠...</p>
+          <div class="more">
+            <p><a href="#!"><i class="fa-regular fa-heart"></i> 1,250</a></p>
+            <p><i class="fa-solid fa-play"></i> 예고편 재생</p>
+            <p><a href="#!">상세보기</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="contents">
+        <div class="photo">
+          <img src="./images/PICK_03.jpg" alt="PICK_01">
+        </div>
+        <div class="text">
+          <img src="./images/18.png" alt="18">
+          <span>이터널메모리</span>
+          <span class="time"><i class="fa-regular fa-clock"></i> 124분</span>
+          <p class="date">2023-10-11(수) ~ 2023-10-31(화)</p>
+          <p class="notice">지옥 같은 현실에서 벗어나고 싶은 소년 ‘연규’가 조직의 중간 보스 ‘치건’을 만나 위태로운 세계에 함께 하게 되며 펼쳐지는 이야기</p>
+          <div class="more">
+            <p><a href="#!"><i class="fa-regular fa-heart"></i> 1,250</a></p>
+            <p><i class="fa-solid fa-play"></i> 예고편 재생</p>
+            <p><a href="#!">상세보기</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pick pick_02">
+    <div class="contents_box">
+      <div class="contents">
+        <div class="photo">
+          <img src="./images/PICK_04.png" alt="PICK_01">
+        </div>
+        <div class="text">
+          <img src="./images/all.png" alt="all">
+          <span>그대들은 어떻게 살것인가</span>
+          <span class="time"><i class="fa-regular fa-clock"></i> 123분</span>
+          <p class="date">2023-10-25(수) ~ 2023-10-31(화)</p>
+          <p class="notice">어머니에 대한 그리움과 새로운 보금자리에 적응하느라 힘들어하던 ‘마히토’ 앞에
+            정체를 알 수 없는 왜가리 한 마리가 나타나고...
+            </p>
+          <div class="more">
+            <p><a href="#!"><i class="fa-regular fa-heart"></i> 1,250</a></p>
+            <p><i class="fa-solid fa-play"></i> 예고편 재생</p>
+            <p><a href="#!">상세보기</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="contents">
+        <div class="photo">
+          <img src="./images/PICK_05.png" alt="PICK_01">
+        </div>
+        <div class="text">
+          <img src="./images/15.png" alt="15">
+          <span>소년들</span>
+          <span class="time"><i class="fa-regular fa-clock"></i> 123분</span>
+          <p class="date">2023-11-01(수) ~ 2023-11-15(토)</p>
+          <p class="notice">1999년 전북 삼례의 작은 슈퍼마켓에서 강도 살인 사건이 발생한다.
+            경찰의 수사망은 단번에 동네에 사는 소년들 3인으로 좁혀지고...</p>
+          <div class="more">
+            <p><a href="#!"><i class="fa-regular fa-heart"></i> 1,250</a></p>
+            <p><i class="fa-solid fa-play"></i> 예고편 재생</p>
+            <p><a href="#!">상세보기</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="contents">
+        <div class="photo">
+          <img src="./images/PICK_06.png" alt="PICK_01">
+        </div>
+        <div class="text">
+          <img src="./images/15.png" alt="15">
+          <span>조커</span>
+          <span class="time"><i class="fa-regular fa-clock"></i> 123분</span>
+          <p class="date">2023-11-01(수) ~ 2023-11-15(토)</p>
+          <p class="notice">지옥 같은 현실에서 벗어나고 싶은 소년 ‘연규’가 조직의 중간 보스 ‘치건’을 만나 위태로운 세계에 함께 하게 되며 펼쳐지는 이야기</p>
+          <div class="more">
+            <p><a href="#!"><i class="fa-regular fa-heart"></i> 1,250</a></p>
+            <p><i class="fa-solid fa-play"></i> 예고편 재생</p>
+            <p><a href="#!">상세보기</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pick pick_03">
+    <div class="contents_box">
+      <div class="contents">
+        <div class="photo">
+          <img src="./images/PICK_05.png" alt="PICK_01">
+        </div>
+        <div class="text">
+          <img src="./images/15.png" alt="15">
+          <span>소년들</span>
+          <span class="time"><i class="fa-regular fa-clock"></i> 123분</span>
+          <p class="date">2023-11-01(수) ~ 2023-11-15(토)</p>
+          <p class="notice">1999년 전북 삼례의 작은 슈퍼마켓에서 강도 살인 사건이 발생한다.
+            경찰의 수사망은 단번에 동네에 사는 소년들 3인으로 좁혀지고...</p>
+          <div class="more">
+            <p><a href="#!"><i class="fa-regular fa-heart"></i> 1,250</a></p>
+            <p><i class="fa-solid fa-play"></i> 예고편 재생</p>
+            <p><a href="#!">상세보기</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="contents">
+        <div class="photo">
+          <img src="./images/PICK_04.png" alt="PICK_01">
+        </div>
+        <div class="text">
+          <img src="./images/all.png" alt="all">
+          <span>그대들은 어떻게 살것인가</span>
+          <span class="time"><i class="fa-regular fa-clock"></i> 123분</span>
+          <p class="date">2023-10-25(수) ~ 2023-10-31(화)</p>
+          <p class="notice">어머니에 대한 그리움과 새로운 보금자리에 적응하느라 힘들어하던 ‘마히토’ 앞에
+            정체를 알 수 없는 왜가리 한 마리가 나타나고...
+            </p>
+          <div class="more">
+            <p><a href="#!"><i class="fa-regular fa-heart"></i> 1,250</a></p>
+            <p><i class="fa-solid fa-play"></i> 예고편 재생</p>
+            <p><a href="#!">상세보기</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="contents">
+        <div class="photo">
+          <img src="./images/PICK_03.jpg" alt="PICK_01">
+        </div>
+        <div class="text">
+          <img src="./images/18.png" alt="18">
+          <span>이터널메모리</span>
+          <span class="time"><i class="fa-regular fa-clock"></i> 124분</span>
+          <p class="date">2023-10-11(수) ~ 2023-10-31(화)</p>
+          <p class="notice">지옥 같은 현실에서 벗어나고 싶은 소년 ‘연규’가 조직의 중간 보스 ‘치건’을 만나 위태로운 세계에 함께 하게 되며 펼쳐지는 이야기</p>
+          <div class="more">
+            <p><a href="#!"><i class="fa-regular fa-heart"></i> 1,250</a></p>
+            <p><i class="fa-solid fa-play"></i> 예고편 재생</p>
+            <p><a href="#!">상세보기</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> <!----pick----->
+
+  <p class="contents_title">
+    공지사항
+  </p>
+
+  <section class="notice_box">
+    <ul class="notice_tab">
+      <li class="on"><img src="./images/notice01.png" alt="notice01"></li>
+      <li><img src="./images/notice02.png" alt="notice02"></li>
+      <li><img src="./images/notice03.png" alt="notice03"></li>
+      <li><img src="./images/notice04.png" alt="notice04"></li>
+      <li><img src="./images/notice05.png" alt="notice05"></li>
+    </ul>
+
+    <ul class="notice_sheet">
+      <li class="sheet01">나만의 영화 굿즈(키링) 만들기 <span>2023-10-05</span></li>
+      <li class="sheet02">부산 국제 영화제 기간 라이브러리 운영 일정 안내 <span>2023-09-22</span></li>
+      <li class="sheet03">[영화] 한국영화 한글자막(CC) 상영안내 <span>2023-09-21</span></li>
+      <li class="sheet04">[시네마 테크] 고다르 1주기 추모 특별 영상 <span>2023-09-15</span></li>
+      <li class="sheet01">[GV안내] 11/8 19:30 앵콜! 11월 수요단편극장 <span>2023-09-05</span></li>
+    </ul>
+  </section><!-----text----->
+
+  <p class="contents_title">
+    이벤트
+  </p>
+
+  <section class="event">
+    <div>
+      <img src="./images/eve01.jpg" alt="eve01">
+    </div>
+    <div>
+      <img src="./images/eve02.png" alt="eve02">
+    </div>
+    <div>
+      <img src="./images/eve03.png" alt="eve03">
+    </div>
+    <div>
+      <img src="./images/eve04.png" alt="eve04">
+    </div>
+    <div>
+      <img src="./images/eve05.png" alt="eve05">
+    </div>
+    <div>
+      <img src="./images/eve06.png" alt="eve05">
+    </div>
+  </section><!----event---->
+
+  <p class="contents_title">
+    SNS리뷰
+  </p>
+
+  <section class="sns">
+    <div class="sns_box">
+      <div><a href="#!">
+        <img src="./images/리뷰1.png" alt="리뷰1"></a>
+      </div>
+      <div><a href="#!">
+        <img src="./images/리뷰2.png" alt="리뷰2"></a>
+      </div>
+      <div><a href="#!">
+        <img src="./images/리뷰3.png" alt="리뷰3"></a>
+      </div>
+      <div><a href="#!">
+        <img src="./images/리뷰4.png" alt="리뷰4"></a>
+      </div>
+      <div><a href="#!">
+        <img src="./images/리뷰5.png" alt="리뷰5"></a>
+      </div>
+      <div><a href="#!">
+        <img src="./images/리뷰6.png" alt="리뷰6"></a>
+      </div>
+    </div>
+  </section><!----sns----->
+</div>
+
+  <footer class="footer">
+    <ul class="list">
+      <li><a href="#!">개인정보처리방침</a></li>
+      <li><a href="#!">이용약관</a></li>
+      <li><a href="#!">장애인 이용안내</a></li>
+      <li><a href="#!">오시는길</a></li>
+      <li><a href="#!">사이트맵</a></li>
+    </ul>
+    <ul class="sns_images">
+      <li><a href="#!"><img src="./images/facebook.png" alt="facebook"></a></li>
+      <li><a href="#!"><img src="./images/twitter.png" alt="twitter"></a></li>
+      <li><a href="#!"><img src="./images/youtube.png" alt="youtube"></a></li>
+      <li><a href="#!"><img src="./images/instagram.png" alt="instagram"></a></li>
+    </ul>
+    <div class="f_logo">
+      <img src="./images/푸터 로고.png" alt="푸터로고">
+    </div>
+    <div class="adress">
+      <p>(우)48058 부산광역시 해운대구 수영강변대로 120 영화의전당(우동 1467번지) <br>
+        TEL. 051-780-6000/6080   Fax. 051-780-6019
+        <br><br>  
+        
+        (재)영화의전당  대표자 김진해 사업자번호 : 617-82-11427 <br>
+        통신판매업신고 : 부산해운 제0510호 사업자정보 확인  <br><br>
+        
+        COPYRIGHT(C) BUSAN CINEMA CENTER. ALL RIGHTS RESERVED</p>
+    </div><br>
+    <div class="call">
+      <p>콜센터 051-780-6000 <br>
+        -콜센터 이용시간 09:00 ~ 21:00</p>
+    </div>
+  </footer>
+
+  <footer class="footer01">
+    <div class="footer_box">
+      <ul>
+        <img src="./images/푸터 로고.png" alt="푸터로고">
+        <li>(우)48058 부산광역시 해운대구 수영강변대로 120 영화의전당(우동 1467번지) <br>
+          TEL. 051-780-6000/6080   Fax. 051-780-6019</li>
+        <li>(재)영화의전당  대표자 김진해 사업자번호 : 617-82-11427 <br>
+          통신판매업신고 : 부산해운 제0510호 사업자정보 확인 </li>
+        <li>COPYRIGHT(C) BUSAN CINEMA CENTER. ALL RIGHTS RESERVED</li>
+      </ul>
+      <div>
+        <ul class="map">
+          <li><a href="#!">개인정보처리방침</a></li>
+          <li><a href="#!">이용약관</a></li>
+          <li><a href="#!">장애인 이용안내</a></li>
+          <li><a href="#!">오시는길</a></li>
+          <li><a href="#!">사이트맵</a></li>
+        </ul>
+        <ul class="sns_images">
+          <li><a href="#!"><img src="./images/facebook.png" alt="facebook"></a></li>
+          <li><a href="#!"><img src="./images/twitter.png" alt="twitter"></a></li>
+          <li><a href="#!"><img src="./images/youtube.png" alt="youtube"></a></li>
+          <li><a href="#!"><img src="./images/instagram.png" alt="instagram"></a></li>
+        </ul>
+        <div>
+          <p>콜센터 051-780-6000</p>
+          <p>콜센터 이용시간 09:00 ~ 21:00</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
