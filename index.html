@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>portfolio</title>
   <link rel="stylesheet" href="./css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
   <script src="./js/jquery-3.7.1.min.js"></script>
   <script src="./js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
@@ -33,113 +37,111 @@
 </script>
 
 <script>
-  if (window.innerWidth >= 1024) {
-    document.addEventListener("DOMContentLoaded", () => {
-      gsap.registerPlugin(SplitText, ScrollTrigger);
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.innerWidth < 1024) return;
 
-      const splitTargets = gsap.utils.toArray(".split");
+    gsap.registerPlugin(SplitText, ScrollTrigger, ScrollToPlugin);
 
-      splitTargets.forEach((target) => {
-        let split = new SplitType(target, { type: "words, chars" });
+    // Split 애니메이션
+    const splitTargets = gsap.utils.toArray(".split");
 
-        gsap.set(split.words, {
-          yPercent: 100,
-          opacity: 0,
-        });
+    splitTargets.forEach((target) => {
+      let split = new SplitType(target, { type: "words, chars" });
 
-        gsap.to(split.words, {
-          yPercent: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "circ.out",
-          stagger: {
-            amount: 1,
-            from: "random",
-          },
-          scrollTrigger: {
-            trigger: target,
-            start: "top 90%",
-            end: "+=400",
-            toggleActions: "play none none none",
-            once: true,
-          },
-        });
+      gsap.set(split.words, {
+        yPercent: 100,
+        opacity: 0,
       });
 
-      let splitInstance, tl;
-
-      const createSplitText = () => {
-        splitInstance && splitInstance.revert();
-        tl && tl.revert();
-
-        splitInstance = new SplitText(".about_txt p", {
-          type: "words, chars",
-        });
-
-        tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: ".sec04",
-            start: "top top",
-            end: "+=150%",
-            pin: true,
-            scrub: 0.9,
-          },
-        });
-
-        tl.set(
-          splitInstance.words,
-          {
-            color: "#222",
-            stagger: 0.1,
-          },
-          0.1
-        );
-
-        splitInstance = new SplitText(".sec04 .main_title h2", {
-          type: "chars",
-        });
-
-        tl.from(splitInstance.chars, {
-          opacity: 0,
-          y: 50,
-          stagger: 0.05,
-          duration: 0.5,
-          ease: "power4.out",
-        }, 0.1);
-      };
-
-      createSplitText();
-
-      const debouncer = gsap.delayedCall(0.2, createSplitText).pause();
-      window.addEventListener("resize", () => debouncer.restart(true));
-    });
-  }
-</script>
-
-<script>
-  if (window.innerWidth >= 1024) {
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll('.menu a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const targetId = this.getAttribute("href");
-          const target = document.querySelector(targetId);
-
-          if (target) {
-            gsap.to(window, {
-              duration: 1,
-              scrollTo: {
-                y: target,
-                offsetY: 50
-              },
-              ease: "power2.out"
-            });
-          }
-        });
+      gsap.to(split.words, {
+        yPercent: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "circ.out",
+        stagger: {
+          amount: 1,
+          from: "random",
+        },
+        scrollTrigger: {
+          trigger: target,
+          start: "top 90%",
+          end: "+=400",
+          toggleActions: "play none none none",
+          once: true,
+        },
       });
     });
-  }
+
+    // sec04 텍스트 애니메이션
+    let splitInstance, tl;
+
+    const createSplitText = () => {
+      splitInstance && splitInstance.revert();
+      tl && tl.revert();
+
+      splitInstance = new SplitText(".about_txt p", {
+        type: "words, chars",
+      });
+
+      tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".sec04",
+          start: "top top",
+          end: "+=150%",
+          pin: true,
+          scrub: 0.9,
+        },
+      });
+
+      tl.set(
+        splitInstance.words,
+        {
+          color: "#222",
+          stagger: 0.1,
+        },
+        0.1
+      );
+
+      splitInstance = new SplitText(".sec04 .main_title h2", {
+        type: "chars",
+      });
+
+      tl.from(splitInstance.chars, {
+        opacity: 0,
+        y: 50,
+        stagger: 0.05,
+        duration: 0.5,
+        ease: "power4.out",
+      }, 0.1);
+    };
+
+    createSplitText();
+
+    const debouncer = gsap.delayedCall(0.2, createSplitText).pause();
+    window.addEventListener("resize", () => debouncer.restart(true));
+
+    // Smooth Scroll
+    document.querySelectorAll('.menu a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href");
+        const target = document.querySelector(targetId);
+
+        if (target) {
+          gsap.to(window, {
+            duration: 1,
+            scrollTo: {
+              y: target,
+              offsetY: 50
+            },
+            ease: "power2.out"
+          });
+        }
+      });
+    });
+  });
 </script>
+
 
 
 <script>
@@ -151,7 +153,7 @@
 
 <body>
 
-  <canvas id="fluid-canvas"></canvas>
+  <!-- <canvas id="fluid-canvas"></canvas> -->
   <script src="/js/dat.gui.min.js"></script>
   <script src="js/script.js"></script>
   <!-- <script src="/js/config.js"></script> -->
@@ -210,7 +212,7 @@
                   <p class="num">(01)</p>
                   <div class="txt_box">
                     <p class="txt1">(주)더썸 비스타</p>
-                    <p class="txt2">PHP, 그누보드 게시판, GSAP를 활용하여 홈페이지 리뉴얼 했습니다.</p>
+                    <p class="txt2">PHP, 그누보드 게시판, GSAP를 활용하여 자사 홈페이지 리뉴얼 했습니다.</p>
                   </div>
                 </div>
                 <p class="year">2025</p>
@@ -498,6 +500,8 @@
                 let pixiStarted = false;
 
                 function initPixi() {
+                  if (pixiApp) return;
+
                   pixiApp = new PIXI.Application({
                     width: 716,
                     height: 524,
@@ -540,8 +544,11 @@
                 }
 
                 function animatePixi() {
-                  const bandText = new SplitType('.sec04 .band', { types: 'chars' });
-                  const detailsText = new SplitType('.sec04 .details p', { types: 'lines' });
+                  // ✅ SplitText는 1024 이상에서만 실행
+                  if (window.innerWidth >= 1024) {
+                    new SplitType('.sec04 .band', { types: 'chars' });
+                    new SplitType('.sec04 .details p', { types: 'lines' });
+                  }
 
                   gsap.set(stageEl, { autoAlpha: 1 });
 
@@ -598,18 +605,52 @@
                   gsap.set(stageEl, { scale });
                 }
 
-                window.addEventListener('resize', resizeStage);
+                function runPixiForMobile() {
+                  if (!pixiStarted) {
+                    pixiStarted = true;
+                    initPixi();
+                    gsap.set(stageEl, { autoAlpha: 1, clearProps: 'scale' });
+                    animatePixi(); // ❗SplitText는 내부에서 조건 분기됨
+                  }
+                }
 
-                window.addEventListener('scroll', () => {
-                  const rect = stageEl.getBoundingClientRect();
-                  if (!pixiStarted && rect.top < window.innerHeight * 0.75) {
+                function runPixiForDesktop() {
+                  if (!pixiStarted) {
                     pixiStarted = true;
                     initPixi();
                     resizeStage();
-                    animatePixi();
+                    animatePixi(); // ❗SplitText는 내부에서 조건 분기됨
+                  }
+                }
+
+                // ✅ 초기 로드 시 화면 크기에 따라 실행
+                window.addEventListener('DOMContentLoaded', () => {
+                  if (window.innerWidth < 1024) {
+                    runPixiForMobile(); // 모바일은 페이지 로드 시 바로 실행
                   }
                 });
+
+                // ✅ 스크롤 트리거 (데스크탑만)
+                window.addEventListener('scroll', () => {
+                  if (window.innerWidth >= 1024) {
+                    const rect = stageEl.getBoundingClientRect();
+                    if (!pixiStarted && rect.top < window.innerHeight * 0.75) {
+                      runPixiForDesktop();
+                    }
+                  }
+                });
+
+                // ✅ 리사이즈 시 stage 크기 조절
+                window.addEventListener('resize', () => {
+                  if (window.innerWidth >= 1024) {
+                    resizeStage();
+                  } else {
+                    gsap.set(stageEl, { clearProps: 'scale' });
+                  }
+                });
+
               </script>
+
               <!-- ✅ SplitText (GSAP 등록용, CodePen 전용) -->
 
               <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/PixiPlugin.min.js"></script>

@@ -49,7 +49,7 @@ body {
 }
 
 /* fonts */
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Libertinus+Mono&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 @font-face {
   font-family: 'NEXON Lv1 Gothic OTF';
@@ -107,9 +107,9 @@ canvas {
 .header .nav .logo_inner {
   display: inline-block;
   font-size: 30px;
-  font-family: 'Montserrat';
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
-    mix-blend-mode: difference;
+  mix-blend-mode: difference;
 }
 
 .header .nav .menu {
@@ -150,7 +150,7 @@ canvas {
   font-weight: 500;
   display: inline-block;
   transition: opacity 0.3s ease;
-    mix-blend-mode: difference;
+  mix-blend-mode: difference;
 }
 
 .header .m_ham .m_close {
@@ -233,6 +233,7 @@ canvas {
 .sec01 {
   position: relative;
   z-index: -1;
+  height: 100vh;
 }
 
 .sec01 .sec01_bg {
@@ -321,7 +322,7 @@ canvas {
 }
 
 .works_cont .works_list .wl_inner .num {
-  font-family: 'Montserrat';
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   margin-right: 20px;
 }
@@ -509,6 +510,7 @@ canvas {
 .details p .bold {
   font-weight: 600;
   color: #222;
+  margin-left: 10px;
 }
 
 /* sec06 */
@@ -529,9 +531,13 @@ canvas {
   margin-bottom: 10px;
 }
 
+.sec06 .inner .contact_ment p {
+  line-height: 1.5;
+}
+
 .sec06 .inner .name {
   font-size: 100px;
-  font-family: 'Montserrat';
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
 }
 
@@ -645,7 +651,7 @@ canvas {
   }
 
   .sec01 .sec01_bg p {
-    color: #8d8d8d;
+    color: #222;
   }
 
   .sec06 {
@@ -674,6 +680,10 @@ canvas {
     display: block;
   }
 
+  .sec02 .inner {
+    padding: 0 2.5%;
+  }
+
   .sec01 .sec01_bg p {
     font-size: 70px;
   }
@@ -682,8 +692,18 @@ canvas {
     font-size: 20px;
   }
 
+  .works_cont .works_list {
+    margin-bottom: 80px;
+  }
+
   .works_cont .works_list a .year {
-    font-size: 18px;
+    font-size: 14px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    mix-blend-mode: difference;
+    color: #fff;
+    z-index: 2;
   }
 
   .works_cont .works_list .wl_inner {
@@ -691,11 +711,16 @@ canvas {
   }
 
   .works_cont .works_list a {
-    height: 300px;
     padding: 0;
     overflow: hidden;
     position: relative;
     color: #222;
+    border: none;
+    display: block;
+  }
+
+  .works_cont .works_list:last-child a {
+    border: none;
   }
 
   .works_cont .works_list a:hover {
@@ -703,16 +728,21 @@ canvas {
     background: none;
   }
 
-  .works_cont .works_list a:hover .img_box {
-    filter: brightness(.7);
-  }
-
   .works_cont .works_list .wl_inner {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .works_cont .works_list .wl_inner .num {
+    font-size: 14px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    mix-blend-mode: difference;
+    color: #fff;
   }
 
   .works_cont .works_list .wl_inner .img_box {
@@ -728,39 +758,19 @@ canvas {
     transition: all .3s;
   }
 
-  .works_cont .works_list .wl_inner .num {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    z-index: 3;
-    color: #fff;
-  }
-
   .works_cont .works_list .wl_inner .txt_box {
     width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 3;
-    padding: 30px;
-    background: linear-gradient(to top, #222, transparent);
-    color: #fff;
+    margin-top: 10px;
   }
-.works_cont .works_list .wl_inner .txt_box .txt1 {
-  font-size: 16px;
-}
+
+  .works_cont .works_list .wl_inner .txt_box .txt1 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
   .works_cont .works_list .wl_inner .txt_box .txt2 {
     line-height: 1.5;
     font-size: 14px;
-  }
-
-  .works_cont .works_list a .year {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    z-index: 3;
-    color: #fff;
-    transition: all .3s;
   }
 
   .details p {
@@ -800,11 +810,12 @@ canvas {
 
   .main_title {
     padding-top: 100px;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
   }
 
   .main_title h2 {
-    font-size: 40px;
+    font-size: 30px;
+    text-align: left;
   }
 
   .about_txt p.fs30 {
@@ -855,5 +866,9 @@ canvas {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  .sec01 .inner {
+    height: 90vh;
   }
 }
