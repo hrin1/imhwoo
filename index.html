@@ -43,31 +43,27 @@
     gsap.registerPlugin(SplitText, ScrollTrigger, ScrollToPlugin);
 
     // Split 애니메이션
-    const splitTargets = gsap.utils.toArray(".split");
+    const targets = gsap.utils.toArray(".split");
 
-    splitTargets.forEach((target) => {
-      let split = new SplitType(target, { type: "words, chars" });
+    targets.forEach((target) => {
+      let SplitClient = new SplitType(target, { type: "lines, words, chars" });
+      let lines = SplitClient.lines;
+      let words = SplitClient.words;
+      let chars = SplitClient.chars;
 
-      gsap.set(split.words, {
+      gsap.from(words, {
         yPercent: 100,
         opacity: 0,
-      });
-
-      gsap.to(split.words, {
-        yPercent: 0,
-        opacity: 1,
         duration: 1,
         ease: "circ.out",
         stagger: {
           amount: 1,
-          from: "random",
+          from: "random"
         },
         scrollTrigger: {
           trigger: target,
-          start: "top 90%",
+          start: "top bottom",
           end: "+=400",
-          toggleActions: "play none none none",
-          once: true,
         },
       });
     });
